@@ -1,0 +1,122 @@
+body {
+    background-color: #f7f7f7;
+}
+
+.donation-form {
+    background-color: #f0b729;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.donate-button {
+    background-color: #1c2c40;
+    color: white;
+}
+
+.footer,
+.header {
+    background-color: #800040;
+    color: white;
+    padding: 10px 0;
+}
+
+.header-links a,
+.footer-links a {
+    color: white;
+    margin-left: 10px;
+    /* Adjust for RTL */
+}
+
+.btn-group .btn {
+    margin-left: 10px;
+    /* Adjust for RTL */
+}
+.donation-box {
+    width: 80% !important;
+    margin: auto m !important;
+    padding: 40px !important;
+}
+
+
+/* for offline donation */
+
+/* body {
+    font-family: 'Arial', sans-serif;
+    direction: rtl;
+    text-align: right;
+    padding: 20px;
+} */
+.thank-you-message {
+    color: #f0b729;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+.donation-box {
+    background-color: #f0b729;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px auto;
+    max-width: 500px;
+}
+.contact-info {
+    font-size: 0.9rem;
+}
+.contact-info span {
+    font-weight: bold;
+}
+.bank-info {
+    font-weight: bold;
+}
+
+
+/* Design for header */
+.second_main {
+    background-color: #1c2c40; /* Example background color */
+    color: #fff; /* Text color */
+    padding: 10px 0; /* Padding for spacing */
+}
+
+.second_main .logo {
+    font-size: 24px; /* Logo font size */
+    font-weight: bold; /* Logo font weight */
+}
+
+.second_main .navbar-nav .nav-link {
+    color: #fff; /* Navbar link color */
+    margin-left: 20px; /* Space between links */
+}
+
+.second_main .navbar-nav .nav-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Cereate footer */
+.max-width
+{
+    max-width:none !important;
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.form-label{
+    color: var(--bs-secondary);
+    /* font-weight: bold; */
+}
+.form-control{
+    color: var(--bs-secondary) !important;
+    /* font-weight: 600 !important; */
+}
+.form-select{
+    color: var(--bs-secondary) !important;
+    /* font-weight: 600 !important; */
+}
+.form-check-label{
+    color: var(--bs-secondary) !important;
+    /* font-weight: 600 !important; */
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--bs-secondary) !important; /* Blue background when checked */
+    border-color: var(--bs-secondary) !important; /* Blue border when checked */
+}

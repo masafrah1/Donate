@@ -125,4 +125,13 @@ class DonationController extends Controller
     {
         return view(view: 'pages.about');
     }
+    public function projects()
+    {
+        return view(view: 'pages.projects');
+    }
+
+    public function reports()
+    {
+        return view(view: 'pages.reports');
+    }
 }

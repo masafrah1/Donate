@@ -991,3 +991,42 @@
     font-weight: 800 !important;
     /* padding: 0px 5px !important; */
 }
+
+
+/* counter test */
+/*  Counter Section  */
+
+.counter
+{
+    background-color: var(--bs-secondary);
+    text-align: center;
+}
+.employees,.customer,.design,.order
+{
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.counter-count
+{
+    font-size: 18px;
+    background-color: var(--bs-primary);
+    border-radius: 50%;
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    line-height: 92px;
+    width: 92px;
+    height: 92px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    display: inline-block;
+}
+
+.employee-p,.customer-p,.order-p,.design-p
+{
+    font-size: 24px;
+    color: var(--bs-primary);
+    line-height: 34px;
+}

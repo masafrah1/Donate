@@ -30,18 +30,18 @@
                     <div class="col-md-6 col-lg-6 col-xl-2">
                         <div class="footer-item">
                             <h4 class="text-white mb-4">روابط سريعة</h4>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> عن الوزارة</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> البرامج</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> الأخبار</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> الإعلانات</a>
+                            <a href="https://www.mosd.gov.ps/ar/about/1"><i class="fas fa-angle-right me-2"></i> عن الوزارة</a>
+                            <a href="/projects"><i class="fas fa-angle-right me-2"></i> البرامج</a>
+                            <a href="https://www.mosd.gov.ps/ar/news"><i class="fas fa-angle-right me-2"></i> الأخبار</a>
+                            <a href="https://www.mosd.gov.ps/ar/announcements"><i class="fas fa-angle-right me-2"></i> الإعلانات</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="footer-item">
                             <h4 class="text-white mb-4">الدعم</h4>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> مشاريع</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> مكتبة الصور</a>
-                            <a href="#"><i class="fas fa-angle-right me-2"></i> الدراسات والتقارير</a>
+                            <a href="https://www.mosd.gov.ps/ar/projects"><i class="fas fa-angle-right me-2"></i> مشاريع</a>
+                            <a href="https://www.mosd.gov.ps/ar/gallery"><i class="fas fa-angle-right me-2"></i> مكتبة الصور</a>
+                            <a href="https://www.mosd.gov.ps/ar/researches-reports"><i class="fas fa-angle-right me-2"></i> الدراسات والتقارير</a>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-6 col-xl-3">

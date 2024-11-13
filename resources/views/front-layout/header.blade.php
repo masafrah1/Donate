@@ -54,7 +54,21 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
               <div class="navbar-nav ms-auto py-0">
                   <a href="/about" class="nav-item nav-link active">برنامج أمل المستقبل</a>
-                  <a href="/projects" class="nav-item nav-link">البرامج والمشاريع</a>
+                  {{-- <a href="/projects" class="nav-item nav-link">البرامج والمشاريع</a> --}}
+
+                  <div class="nav-item dropdown text-end">
+                      <a href="/projects" class="nav-link rtl" data-bs-toggle="dropdown">
+                          <span class="dropdown-toggle">البرامج والمشاريع</span>
+                      </a>
+                      <div class="dropdown-menu m-0 text-end">
+                          <a href="/projects/#project-1" class="dropdown-item text-end">مشروع الكفالات المالية</a>
+                          <a href="/projects/#project-2" class="dropdown-item text-end">مشروع بناء تسعة مراكز إيوائية في قطاع غزة</a>
+                          <a href="/projects/#project-3" class="dropdown-item text-end">مشروع دعم نفسي إجتماعي</a>
+                          <a href="/projects/#project-4" class="dropdown-item text-end">مشروع التعافي الطبي</a>
+                          <a href="/projects/#project-5" class="dropdown-item text-end">مشروع رعاية الأيتام</a>
+                          <a href="/projects/#project-6" class="dropdown-item text-end">مشروع توفير الرعاية البديلة للأطفال الأيتام</a>
+                      </div>
+                  </div>
                   <a href="#" class="nav-item nav-link">النداءات</a>
                   <a href="#" class="nav-item nav-link">الحملات</a>
                   <a href="#" class="nav-item nav-link">الشركاء</a>
@@ -62,8 +76,15 @@
                   <a href="#" class="nav-item nav-link">تقارير </a>
                   <a href="#" class="nav-item nav-link">تطوع معنا</a>
                   <a href="#" class="nav-item nav-link">قصص نجاح</a>
+                  <a href="https://www.mosd.gov.ps/ar/page/contact" class="nav-item nav-link">تواصل معنا</a>
+              </div>
+              <a href="#donationSection" class=""><img width="200" src="{{ asset('images/donate.gif') }}" alt="تبرع الان" /></a>
+          </div>
+      </nav>
+  </div>
 
-                  {{-- <div class="nav-item dropdown">
+
+  {{-- <div class="nav-item dropdown">
                       <a href="#" class="nav-link" data-bs-toggle="dropdown">
                           <span class="dropdown-toggle">البوابة الموحدة للمساعدات</span>
                       </a>
@@ -76,9 +97,3 @@
                           <a href="#" class="dropdown-item">404 Page</a>
                       </div>
                   </div> --}}
-                  <a href="https://www.mosd.gov.ps/ar/page/contact" class="nav-item nav-link">تواصل معنا</a>
-              </div>
-              <a href="#donationSection" class=""><img width="200" src="{{ asset('images/donate.gif') }}" alt="تبرع الان" /></a>
-          </div>
-      </nav>
-  </div>

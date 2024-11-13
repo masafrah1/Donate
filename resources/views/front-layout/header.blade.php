@@ -44,7 +44,7 @@
   <!-- Navbar & Hero Start -->
   <div class="container-fluid position-relative p-0">
       <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0 rtl">
-          <a href="https://mosd.gov.ps" class="navbar-brand p-0">
+          <a href="/" class="navbar-brand p-0">
               {{-- <h1 class="text-primary"><i class="fas fa-search-dollar me-3"></i>Stocker</h1> --}}
               <img class="" src="{{ asset('images/logo.png') }}" alt="Logo">
           </a>
@@ -53,12 +53,12 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
               <div class="navbar-nav ms-auto py-0">
-                  <a href="#" class="nav-item nav-link active">برنامج أمل المستقبل</a>
-                  <a href="https://www.mosd.gov.ps/ar/project-categories" class="nav-item nav-link">البرامج والمشاريع</a>
+                  <a href="/about" class="nav-item nav-link active">برنامج أمل المستقبل</a>
+                  <a href="/projects" class="nav-item nav-link">البرامج والمشاريع</a>
                   <a href="#" class="nav-item nav-link">النداءات</a>
                   <a href="#" class="nav-item nav-link">الحملات</a>
                   <a href="#" class="nav-item nav-link">الشركاء</a>
-                  <a href="#" class="nav-item nav-link">البوابة الموحدة للمساعدات</a>
+                  {{-- <a href="#" class="nav-item nav-link">البوابة الموحدة للمساعدات</a> --}}
                   <a href="#" class="nav-item nav-link">تقارير </a>
                   <a href="#" class="nav-item nav-link">تطوع معنا</a>
                   <a href="#" class="nav-item nav-link">قصص نجاح</a>

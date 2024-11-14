@@ -44,20 +44,20 @@
                         </p>
                     </div>
                     @foreach($offlineAccounts as $account)
-                    <div class="row g-5 align-items-center d-flext justify-content-center pt-4">
+                    <div class="row g-5 align-items-center d-flext justify-content-center pt-4 rtl">
                         <div class="col-xl-8 wow fadeInLeft" data-wow-delay="0.2s">
                             <div class="nav nav-pills bg-light rounded p-5">
                                 <a class="accordion-link p-4 active mb-4" data-bs-toggle="pill" href="#collapseOne">
-                                    <h6 class="mb-0">Bank Name: {{ $account->bank_name }}</h6>
+                                    <h6 class="mb-0">اسم البنك: {{ $account->bank_name  }}</h6>
                                 </a>
                                 <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseTwo">
-                                    <h6 class="mb-0">Beneficiary Name: {{ $account->beneficiary }}</h6>
+                                    <h6 class="mb-0">اسم المستفيد: {{ $account->beneficiary }}</h6>
                                 </a>
                                 <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseThree">
-                                    <h6 class="mb-0">Swift Code: {{ $account->swift_code }}</h6>
+                                    <h6 class="mb-0">سويفت كود البنك: {{ $account->swift_code }}</h6>
                                 </a>
                                 <a class="accordion-link p-4 mb-0" data-bs-toggle="pill" href="#collapseFour">
-                                    <h6 class="mb-0">IBAN: {{ $account->iban }}</h6>
+                                    <h6 class="mb-0">رقم الحساب المصرفي الدولي(IBAN): {{ $account->iban }}</h6>
                                 </a>
                             </div>
 

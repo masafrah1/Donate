@@ -58,15 +58,17 @@ class OfflineAccountResource extends Resource
                         ->preload()
                         ->native(false)
                         ->options([
-                            'Bank of Palestine' => 'Bank of Palestine',
-                            'Palestinian National Bank (PNB)' => 'Palestinian National Bank (PNB)',
-                            'Al Quds Bank' => 'Al Quds Bank',
-                            'Palestine Islamic Bank' => 'Palestine Islamic Bank',
-                            'Cairo Amman Bank' => 'Cairo Amman Bank',
-                            'Islamic Development Bank' => 'Islamic Development Bank',
-                            'Arab Bank' => 'Arab Bank',
-                            'Islamic Development Bank (IsDB)' => 'Islamic Development Bank (IsDB)',
-                            'Palestine Commercial Bank' => ' Palestine Commercial Bank',
+                            'بنك فلسطين' => 'بنك فلسطين',
+                            'البنك الوطني الفلسطيني (PNB)' => 'البنك الوطني الفلسطيني (PNB)',
+                            'بنك القدس' => 'بنك القدس',
+                            'بنك فلسطين الإسلامي' => 'بنك فلسطين الإسلامي',
+                            'بنك القاهرة عمان' => 'بنك القاهرة عمان',
+                            'البنك الإسلامي للتنمية' => 'البنك الإسلامي للتنمية',
+                            'البنك العربي' => 'البنك العربي',
+                            'البنك الإسلامي للتنمية (IsDB)' => 'البنك الإسلامي للتنمية (IsDB)',
+                            'البنك التجاري الفلسطيني' => 'البنك التجاري الفلسطيني',
+                            'بنك الإسكان' => 'بنك الإسكان',
+                            'بنك الأردن' => 'بنك الأردن',
                         ]),
 
                     TextInput::make('swift_code')

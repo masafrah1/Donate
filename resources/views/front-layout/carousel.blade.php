@@ -20,7 +20,7 @@
                             </p>
                             <div class="d-flex justify-content-center justify-content-md-end flex-shrink-0 mb-4">
 
-                                <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="#"><i
+                                <a class="btn btn-light rounded-pill py-3 px-4 px-md-5 me-2" href="https://youtu.be/TKaoaGOX35s"><i
                                         class="fas fa-play-circle me-2"></i>شاهد فيديو</a>
                                 <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="/about">إقرأ
                                     المزيد</a>
@@ -40,8 +40,8 @@
                                             class="fab fa-instagram"></i></a>
                                     <a class="btn btn-md-square btn-light rounded-circle mx-2"
                                         href="https://x.com/Mosdgov_ps"><i class="fa-solid fa-xmark text-whit"></i></a>
-                                    {{--
-                                    <a class="btn btn-md-square btn-light rounded-circle ms-2" href=""><i class="fab fa-linkedin-in"></i></a> --}}
+
+                                    <a class="btn btn-md-square btn-light rounded-circle ms-2" href="https://www.tiktok.com/@mosdgov_ps"><i class="fab fa-tiktok"></i></a>
                                 </div>
                             </div>
                         </div>

@@ -126,8 +126,8 @@
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
                                             <select class="form-select" id="payment_method" name="payment_method" required>
-                                                <option value="Online" selected>Offline</option>
-                                                <option value="Offline">Online</option>
+                                                <option value="Offline">Offline</option>
+                                                <option value="Online">Online</option>
                                             </select>
                                             <label for="payment_method">طريقة الدفع <span class="text-danger">*</span></label>
                                         </div>

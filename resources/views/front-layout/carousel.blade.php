@@ -1,11 +1,12 @@
 <!-- Carousel Start -->
 <div class="header-carousel owl-carousel">
     <div class="header-carousel-item">
-        {{-- <img src="img/carousel-1.jpg" class="img-fluid w-100" alt="Image"> --}}
-        <video class="img-fluid w-100" autoplay loop muted playsinline>
+        <video class="img-fluid w-100 full-height-video" autoplay loop muted playsinline>
             <source src="{{ asset('videos/carosel-videov1.mp4') }}" type="video/mp4">
         </video>
+
         <div class="carousel-caption">
+
             <div class="container">
                 <div class="row gy-0 gx-5">
                     <div class="col-lg-0 col-xl-5"></div>
@@ -34,8 +35,12 @@
                                     <a class="btn btn-md-square btn-light rounded-circle me-2"
                                         href="https://www.youtube.com/@ministryofsocialdevelopmen61"><i
                                             class="fab fa-youtube"></i></a>
-                                    {{-- <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-md-square btn-light rounded-circle mx-2" href=""><i class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-md-square btn-light rounded-circle mx-2"
+                                        href="https://www.instagram.com/mosdgov_ps?igsh=aTRsMjZobHMwZ3hq&utm_source=qr"><i
+                                            class="fab fa-instagram"></i></a>
+                                    <a class="btn btn-md-square btn-light rounded-circle mx-2"
+                                        href="https://x.com/Mosdgov_ps"><i class="fa-solid fa-xmark text-whit"></i></a>
+                                    {{--
                                     <a class="btn btn-md-square btn-light rounded-circle ms-2" href=""><i class="fab fa-linkedin-in"></i></a> --}}
                                 </div>
                             </div>

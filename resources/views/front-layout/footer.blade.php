@@ -66,7 +66,10 @@
                             <div class="d-flex">
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="https://www.facebook.com/mosdps/"><i class="fab fa-facebook-f text-white"></i></a>
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="https://www.youtube.com/@ministryofsocialdevelopmen61"><i class="fab fa-youtube text-white"></i></a>
-                                {{-- <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="#"><i class="fab fa-instagram text-white"></i></a>
+                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="https://www.instagram.com/mosdgov_ps?igsh=aTRsMjZobHMwZ3hq&utm_source=qr"><i class="fab fa-instagram text-white"></i></a>
+                                <a class="btn btn-primary btn-sm-square rounded-circle me-3" href="https://x.com/Mosdgov_ps"><i class="fa-solid fa-xmark text-whit"></i></a>
+
+                                {{--
                                 <a class="btn btn-primary btn-sm-square rounded-circle me-0" href="#"><i class="fab fa-linkedin-in text-white"></i></a> --}}
                             </div>
                         </div>

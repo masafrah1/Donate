@@ -55,7 +55,8 @@ class ProgramResource extends Resource
                         ->string(),
                     TextInput::make(name: 'pay_link')
                         ->string()
-                        ->required(),
+                        ->nullable(),
+
                 ]),
             ]),
         ]);

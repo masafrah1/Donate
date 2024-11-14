@@ -8,9 +8,11 @@ use App\Models\OfflineAccount;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use Validator;
+use Illuminate\Support\Facades\App;
 
 class DonationController extends Controller
 {
+
     /**
      * Display the donation form.
      */
@@ -32,6 +34,7 @@ class DonationController extends Controller
      */
     public function store(Request $request)
     {
+        App::setLocale('ar');
         // Determine if the donor is a company
         $isCompany = $request->input('donor_type') === 'on';
 
@@ -86,7 +89,10 @@ class DonationController extends Controller
         if ($validator->fails()) {
             // Get all error messages and join them into one string
             $errorMessages = implode('<br>', $validator->errors()->all());
-            toastr()->rtl(true)->error($errorMessages, [], "خطأ!");
+            flash()
+                ->option('position', 'top-center')
+                ->translate(['language' => 'ar'])
+                ->option('timeout', 10000)->error($errorMessages, [], "خطأ!");
             return back()->withInput();
         }
 
@@ -107,14 +113,28 @@ class DonationController extends Controller
             'donor_type' => $isCompany,  // Using boolean value directly
         ]);
 
-        toastr()->rtl(true)->success("شكرًا لتبرعك الكريم!", [], "رائع!");
+        flash()
+        ->option('position', 'top-center')
+        ->translate(['language' => 'ar'])
+        ->option('timeout', 10000)->success("شكرًا لتبرعك الكريم!", [], "رائع!");
 
         // Handle program redirection based on payment method
         $program = Program::find($request->program);
 
-        if (strtolower($request->payment_method) == 'online') {
-            return redirect($program->pay_link);
-        } elseif (strtolower($request->payment_method) == 'offline') {
+        $paymentMethod = strtolower($request->payment_method);
+        $payLink = $program->pay_link;
+
+        if ($paymentMethod == 'online') {
+            if (!empty($payLink) && $payLink != 'null' && $payLink != '0') {
+                // dd(!empty($payLink) && $payLink != 'null' && $payLink != '0');
+                return redirect($payLink);
+            }
+
+            // For cases where pay_link is empty or invalid
+            $offlineAccounts = OfflineAccount::where('program_id', $request->program)->get();
+            return view('offline_donation', compact('offlineAccounts'));
+        } elseif ($paymentMethod == 'offline') {
+            // No need to repeat this query for 'offline' method
             $offlineAccounts = OfflineAccount::where('program_id', $request->program)->get();
             return view('offline_donation', compact('offlineAccounts'));
         }
@@ -132,6 +152,8 @@ class DonationController extends Controller
 
     public function reports()
     {
-        return view(view: 'pages.reports');
+        $leadersCount = Leader::count();
+        $donationAmount = Leader::all()->sum(callback: 'amount');
+        return view('pages.reports', compact('leadersCount', 'donationAmount'));
     }
 }

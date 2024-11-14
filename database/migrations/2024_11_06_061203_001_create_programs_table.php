@@ -15,7 +15,7 @@ return new class extends Migration {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
             $table->string('program');
-            $table->longText('pay_link');
+            $table->longText('pay_link')->nullable();
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->timestamp('deleted_at')->nullable();

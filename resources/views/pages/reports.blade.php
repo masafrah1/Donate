@@ -36,33 +36,33 @@
                             <div class="counter">
                                 <div class="container">
                                     <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <div class="employees">
-                                                <p class="counter-count">879</p>
+                                                <p class="counter-count">{{ $leadersCount ?? 0 }} </p>
                                                 <p class="employee-p">عدد المتبرعين</p>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <div class="customer">
-                                                <p class="counter-count">954</p>
+                                                <p class="counter-count"><strong>{{ $donationAmount ?? 0 }}</strong></p>
                                                 <p class="customer-p">المبلغ الإجمالي</p>
                                             </div>
                                         </div>
 
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                                             <div class="design">
-                                                <p class="counter-count">1050</p>
+                                                <p class="counter-count">25000</p>
                                                 <p class="design-p">عدد الأيتام في حرب غزة الأخيرة</p>
                                             </div>
                                         </div>
-
+{{--
                                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                                             <div class="order">
                                                 <p class="counter-count">652</p>
                                                 <p class="order-p">عدد أيتام فلسطين</p>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
@@ -84,18 +84,25 @@
 
 <!-- jQuery and Script -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.counter-count').each(function() {
-                $(this).prop('Counter', 0).animate({
-                    Counter: $(this).text()
-                }, {
-                    duration: 6000, // Adjusted to 2000ms (2 seconds) for quicker demo, adjust as needed
-                    easing: 'swing',
-                    step: function(now) {
-                        $(this).text(Math.ceil(now));
+<script>
+    $(document).ready(function() {
+        $('.counter-count').each(function() {
+            var $this = $(this);
+            var targetValue = parseInt($this.text());
+
+            $this.prop('Counter', 0).animate({
+                Counter: targetValue
+            }, {
+                duration: 6000, // Adjust as needed
+                easing: 'swing',
+                step: function(now) {
+                    if (now >= 1000) {
+                        $this.text((now / 1000).toFixed(1) + 'K');
+                    } else {
+                        $this.text(Math.ceil(now));
                     }
-                });
+                }
             });
         });
-    </script>
+    });
+</script>

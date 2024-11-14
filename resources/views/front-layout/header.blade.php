@@ -73,7 +73,7 @@
                   <a href="#" class="nav-item nav-link">الحملات</a>
                   <a href="#" class="nav-item nav-link">الشركاء</a>
                   {{-- <a href="#" class="nav-item nav-link">البوابة الموحدة للمساعدات</a> --}}
-                  <a href="#" class="nav-item nav-link">تقارير </a>
+                  <a href="/reports" class="nav-item nav-link">تقارير </a>
                   <a href="#" class="nav-item nav-link">تطوع معنا</a>
                   <a href="#" class="nav-item nav-link">قصص نجاح</a>
                   <a href="https://www.mosd.gov.ps/ar/page/contact" class="nav-item nav-link">تواصل معنا</a>

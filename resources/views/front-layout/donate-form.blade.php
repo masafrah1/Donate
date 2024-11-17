@@ -95,10 +95,10 @@
                                         <div class="form-floating">
                                             <select class="form-select border-0" id="currency" name="currency"
                                                 required>
-                                                <option value="USD" selected>USD</option>
+                                                <option value="JOD" selected>JOD</option>
+                                                <option value="USD">USD</option>
                                                 <option value="ILS">ILS</option>
                                                 <option value="EUR">EUR</option>
-                                                <option value="JOD">JOD</option>
                                             </select>
                                             <label for="currency">العملة <span class="text-danger">*</span></label>
                                         </div>

@@ -5,6 +5,7 @@ namespace App\Enums;
 enum CountryCode: string
 {
     case PALESTINE = 'PS';
+    case JORDAN = 'JO';
     case AFGHANISTAN = 'AF';
     case ALBANIA = 'AL';
     case ALGERIA = 'DZ';
@@ -87,7 +88,6 @@ enum CountryCode: string
     case ITALY = 'IT';
     case JAMAICA = 'JM';
     case JAPAN = 'JP';
-    case JORDAN = 'JO';
     case KAZAKHSTAN = 'KZ';
     case KENYA = 'KE';
     case KIRIBATI = 'KI';

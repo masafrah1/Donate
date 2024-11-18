@@ -689,11 +689,6 @@ class WarFormResource extends Resource
                             'مساعدات اجتماعية' => 'مساعدات اجتماعية',
                             'تحويلات من الخارج' => 'تحويلات من الخارج',
                             'أخرى' => 'أخرى',
-                            '' => '',
-                            '' => '',
-                            '' => '',
-                            '' => '',
-                            '' => '',
                         ]),
 
                     TextInput::make('monthly_income_shekels')

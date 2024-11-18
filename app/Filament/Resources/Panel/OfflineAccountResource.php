@@ -71,12 +71,19 @@ class OfflineAccountResource extends Resource
                             'بنك الأردن' => 'بنك الأردن',
                         ]),
 
+                    TextInput::make('account_number')
+                        ->required()
+                        ->string(),
                     TextInput::make('swift_code')
                         ->required()
                         ->string(),
-
-                    TextInput::make('iban')
-                        ->required()
+                    TextInput::make('iban_jod')
+                        ->string(),
+                    TextInput::make(name: 'iban_usd')
+                        ->string(),
+                    TextInput::make(name: 'iban_ils')
+                        ->string(),
+                    TextInput::make(name: 'iban_eur')
                         ->string(),
 
                     TextInput::make('beneficiary')
@@ -99,10 +106,14 @@ class OfflineAccountResource extends Resource
             ->poll('60s')
             ->columns([
                 TextColumn::make('bank_name'),
+                TextColumn::make('account_number'),
 
                 TextColumn::make('swift_code')->limit(255),
 
-                TextColumn::make('iban'),
+                TextColumn::make('iban_jod'),
+                TextColumn::make('iban_usd'),
+                TextColumn::make('iban_ils'),
+                TextColumn::make('iban_eur'),
 
                 TextColumn::make('beneficiary'),
 

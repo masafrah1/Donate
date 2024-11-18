@@ -51,14 +51,27 @@
                                     <h6 class="mb-0">اسم البنك: {{ $account->bank_name  }}</h6>
                                 </a>
                                 <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseTwo">
-                                    <h6 class="mb-0">اسم المستفيد: {{ $account->beneficiary }}</h6>
+                                    <h6 class="mb-0">رقم الحساب: {{ $account->account_number  }}</h6>
                                 </a>
                                 <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseThree">
+                                    <h6 class="mb-0">اسم المستفيد: {{ $account->beneficiary }}</h6>
+                                </a>
+                                <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseFour">
                                     <h6 class="mb-0">سويفت كود البنك: {{ $account->swift_code }}</h6>
                                 </a>
-                                <a class="accordion-link p-4 mb-0" data-bs-toggle="pill" href="#collapseFour">
-                                    <h6 class="mb-0">رقم الحساب المصرفي الدولي(IBAN): {{ $account->iban }}</h6>
+                                <a class="accordion-link p-4 mb-4 text-end" data-bs-toggle="pill" href="#collapseFive">
+                                    <h6 class="mb-0">رقم الحساب المصرفي الدولي (IBAN - JOD) : {{ $account->iban_jod }}</h6>
                                 </a>
+                                <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseSix">
+                                    <h6 class="mb-0">رقم الحساب المصرفي الدولي (IBAN - USD) : {{ $account->iban_usd }}</h6>
+                                </a>
+                                <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseSeven">
+                                    <h6 class="mb-0">رقم الحساب المصرفي الدولي (IBAN - ILS): {{ $account->iban_ils }}</h6>
+                                </a>
+                                <a class="accordion-link p-4 mb-4" data-bs-toggle="pill" href="#collapseEight">
+                                    <h6 class="mb-0">رقم الحساب المصرفي الدولي (IBAN - EUR): {{ $account->iban_eur }}</h6>
+                                </a>
+                                
                             </div>
 
                         </div>

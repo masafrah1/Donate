@@ -12,8 +12,8 @@ class OfflineAccountSeeder extends Seeder
      */
     public function run(): void
     {
-        OfflineAccount::factory()
-            ->count(5)
-            ->create();
+        // OfflineAccount::factory()
+        //     ->count(5)
+        //     ->create();
     }
 }

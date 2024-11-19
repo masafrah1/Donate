@@ -128,8 +128,7 @@
                             </div>
 
                             <!-- Spouse Information Section -->
-                            <div class="spouse-information-container mb-4" id="spouse-info-section"
-                                style="display: none;">
+                            <div class="mb-4" id="spouse-info-section" style="display: none;">
                                 <h5 class="text-primary text-center rtl">بيانات الزوج /ة</h5>
 
                                 <div class="row mb4">
@@ -152,7 +151,7 @@
                                         <div class="form-floating">
                                             <select class="form-select border-0" id="spouse_id_type"
                                                 name="spouse_id_type" required>
-                                                <option>اختار</option>
+                                                <option value="">اختار</option>
                                                 <option value="فلسطينية"
                                                     {{ old('spouse_id_type') == 'فلسطينية' ? 'selected' : '' }}>
                                                     فلسطينية</option>
@@ -677,59 +676,64 @@
                                             {{ old('lost_family_member_during_war') == 'لا' ? 'selected' : '' }}>
                                             لا</option>
                                     </select>
-                                    <label for="lost_family_member_during_war">خلال هذه الحرب هل فقدت احد
-                                        افراد عائلتك</label>
+                                    <label for="lost_family_member_during_war">خلال هذه الحرب هل فقدت احد افراد
+                                        عائلتك</label>
                                     @error('lost_family_member_during_war')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
 
-                            <h5 class="text-primary text-center rtl">صلة القرابة</h5>
-                            <!-- Relationship to Family Members Lost During War -->
-                            <div class="col-lg-12 col-xl-6 rtl">
-                                <div class="form-group rtl">
-                                    <!-- Label placed outside for better structure -->
-                                    <label for="relationship_to_family_members_lost_during_war" class="form-label">
-                                        خلال هذه الحرب، هل فقدت أحد أفراد عائلتك؟ (تستطيع اختيار أكثر من خيار)
-                                        <span class="text-danger">*</span>
-                                    </label>
+                            <!-- Relationship Section: Initially Hidden -->
+                            <div id="relationship-section" style="display: none;">
+                                <h5 class="text-primary text-center rtl">صلة القرابة</h5>
 
-                                    <!-- Multi-select dropdown with Select2 -->
-                                    <select class="form-select select2-multiple text-end"
-                                        id="relationship_to_family_members_lost_during_war"
-                                        name="relationship_to_family_members_lost_during_war[]" multiple required>
-                                        <option value="الاب"
-                                            {{ in_array('الاب', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
-                                            الاب</option>
-                                        <option value="الام"
-                                            {{ in_array('الام', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
-                                            الام</option>
-                                        <option value="الاب والام"
-                                            {{ in_array('الاب والام', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
-                                            الاب والام</option>
-                                        <option value="أخ"
-                                            {{ in_array('أخ', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
-                                            أخ</option>
-                                        <option value="اخت"
-                                            {{ in_array('اخت', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
-                                            اخت</option>
-                                        <option value="ابن"
-                                            {{ in_array('ابن', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
-                                            ابن</option>
-                                        <option value="ابنة"
-                                            {{ in_array('ابنة', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
-                                            ابنة</option>
-                                        <option value="اقرباء اخرون"
-                                            {{ in_array('اقرباء اخرون', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
-                                            اقرباء اخرون</option>
-                                    </select>
+                                <!-- Relationship to Family Members Lost During War -->
+                                <div class="col-lg-12 col-xl-6 rtl">
+                                    <div class="form-group rtl">
+                                        <label for="relationship_to_family_members_lost_during_war"
+                                            class="form-label">
+                                            خلال هذه الحرب، هل فقدت أحد أفراد عائلتك؟ (تستطيع اختيار أكثر من خيار)
+                                            <span class="text-danger">*</span>
+                                        </label>
 
-                                    @error('relationship_to_family_members_lost_during_war')
-                                        <div class="text-danger mt-2">{{ $message }}</div>
-                                    @enderror
+                                        <!-- Multi-select dropdown with Select2 -->
+                                        <select class="form-select select2-multiple text-end"
+                                            id="relationship_to_family_members_lost_during_war"
+                                            name="relationship_to_family_members_lost_during_war[]" multiple required>
+                                            <option value="الاب"
+                                                {{ in_array('الاب', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
+                                                الاب</option>
+                                            <option value="الام"
+                                                {{ in_array('الام', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
+                                                الام</option>
+                                            <option value="الاب والام"
+                                                {{ in_array('الاب والام', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
+                                                الاب والام</option>
+                                            <option value="أخ"
+                                                {{ in_array('أخ', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
+                                                أخ</option>
+                                            <option value="اخت"
+                                                {{ in_array('اخت', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
+                                                اخت</option>
+                                            <option value="ابن"
+                                                {{ in_array('ابن', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
+                                                ابن</option>
+                                            <option value="ابنة"
+                                                {{ in_array('ابنة', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
+                                                ابنة</option>
+                                            <option value="اقرباء اخرون"
+                                                {{ in_array('اقرباء اخرون', old('relationship_to_family_members_lost_during_war', [])) ? 'selected' : '' }}>
+                                                اقرباء اخرون</option>
+                                        </select>
+
+                                        @error('relationship_to_family_members_lost_during_war')
+                                            <div class="text-danger mt-2">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
+
 
 
                             <h5 class="text-primary text-center rtl">احتياجات الاسرة</h5>
@@ -1348,18 +1352,27 @@
 </div>
 <!-- About End -->
 
-<!-- JavaScript -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const maritalStatus = document.getElementById('marital_status');
         const spouseInfoSection = document.getElementById('spouse-info-section');
+        const spouseIdInput = document.getElementById('spouse_id_number');
+        const spouseFullName = document.getElementById('spouse_full_name');
+        const spouseIdType = document.getElementById('spouse_id_type');
+
 
         // Show or hide the Spouse Information Section based on marital status
         maritalStatus.addEventListener('change', function() {
             if (this.value === 'متزوج') {
-                spouseInfoSection.style.display = 'block';
+                spouseInfoSection.style.display = 'block'; // Show spouse info section
+                spouseIdInput.setAttribute('required', 'required'); // Make spouse_id_number required
+                spouseFullName.setAttribute('required', 'required'); // Make spouse_id_number required
+                spouseIdType.setAttribute('required', 'required'); // Make spouse_id_number required
             } else {
-                spouseInfoSection.style.display = 'none';
+                spouseInfoSection.style.display = 'none'; // Hide spouse info section
+                spouseIdInput.removeAttribute('required'); // Remove required attribute for spouse_id_number
+                spouseFullName.removeAttribute('required'); // Remove required attribute for spouse_id_number
+                spouseIdType.removeAttribute('required'); // Remove required attribute for spouse_id_number
             }
         });
 
@@ -1373,13 +1386,17 @@
     document.addEventListener('DOMContentLoaded', function() {
         const careSelect = document.getElementById('care_for_non_family_members');
         const nonFamilyCareSection = document.getElementById('non-family-care-section');
+        const reasonForCaringInput = document.getElementById('reason_for_caring_for_children');
+        const numberOfChildrenInput = document.getElementById('number_of_children_cared_for_not_in_family_under_18');
 
         // Show or hide the section based on the selection
         careSelect.addEventListener('change', function() {
             if (this.value === 'نعم') {
                 nonFamilyCareSection.style.display = 'block';
+                numberOfChildrenInput.setAttribute('required', 'required'); // Make number_of_children_cared_for_not_in_family_under_18 required
             } else {
                 nonFamilyCareSection.style.display = 'none';
+                numberOfChildrenInput.removeAttribute('required'); // Remove required for number_of_children_cared_for_not_in_family_under_18
             }
         });
 
@@ -1388,13 +1405,55 @@
     });
 </script>
 
+
 <script>
-    document.getElementById('displaced_due_to_war_and_changed_housing_location').addEventListener('change', function() {
-        var displacedSection = document.getElementById('displaced-housing-section');
-        if (this.value === 'نعم') {
-            displacedSection.style.display = 'block';
-        } else {
-            displacedSection.style.display = 'none';
-        }
+    document.addEventListener('DOMContentLoaded', function() {
+        const displacedSelect = document.getElementById('displaced_due_to_war_and_changed_housing_location');
+        const displacedSection = document.getElementById('displaced-housing-section');
+        const displacedGovernorateInput = document.getElementById('displaced_governorate');
+        const displacedPopulationClusterInput = document.getElementById('displaced_population_cluster');
+        const displacedStreetInput = document.getElementById('displaced_street');
+        const displacedPlaceOfDisplacementInput = document.getElementById('displaced_place_of_displacement');
+        const displacedAddressInput = document.getElementById('displaced_address');
+
+        // Show or hide the displaced housing section based on the selection
+        displacedSelect.addEventListener('change', function() {
+            if (this.value === 'نعم') {
+                displacedSection.style.display = 'block'; // Show displaced housing section
+                displacedGovernorateInput.setAttribute('required', 'required'); // Make displaced_governorate required
+                displacedPlaceOfDisplacementInput.setAttribute('required', 'required'); // Make displaced_place_of_displacement required
+            } else {
+                displacedSection.style.display = 'none'; // Hide displaced housing section
+                displacedGovernorateInput.removeAttribute('required'); // Remove required for displaced_governorate
+                displacedPlaceOfDisplacementInput.removeAttribute('required'); // Remove required for displaced_place_of_displacement
+            }
+        });
+
+        // Trigger the change event on page load to handle pre-selected values
+        displacedSelect.dispatchEvent(new Event('change'));
     });
 </script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const lostFamilyMemberSelect = document.getElementById('lost_family_member_during_war');
+        const relationshipSection = document.getElementById('relationship-section');
+        const relationshipToFamilyMembersInput = document.getElementById('relationship_to_family_members_lost_during_war');
+
+        // Show or hide the section based on the selection
+        lostFamilyMemberSelect.addEventListener('change', function() {
+            if (this.value === 'نعم') {
+                relationshipSection.style.display = 'block'; // Show the relationship section
+                relationshipToFamilyMembersInput.setAttribute('required', 'required'); // Make relationship_to_family_members_lost_during_war required
+            } else {
+                relationshipSection.style.display = 'none'; // Hide the relationship section
+                relationshipToFamilyMembersInput.removeAttribute('required'); // Remove required for relationship_to_family_members_lost_during_war
+            }
+        });
+
+        // Trigger the change event on page load to handle pre-selected values
+        lostFamilyMemberSelect.dispatchEvent(new Event('change'));
+    });
+</script>
+

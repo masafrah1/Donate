@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Validator;
 use App\Models\WarForm;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,6 @@ class FormController extends Controller
             'gender' => 'required|string|max:255',
             'birth_of_date' => 'required|date',
             'marital_status' => 'required|string|max:255',
-            'spouse_id_number' => 'nullable|string|max:255',
-            'spouse_id_type' => 'nullable|string|max:255',
-            'spouse_full_name' => 'nullable|string|max:255',
             'phone_1' => 'required|string|max:15',
             'phone_2' => 'nullable|string|max:15',
             'residence_governorate' => 'required|string|max:255',
@@ -44,9 +42,7 @@ class FormController extends Controller
             'number_of_breastfeeding_women' => 'required|integer|min:0',
             'number_of_injured_due_to_war' => 'required|integer|min:0',
             'care_for_non_family_members' => 'required|string',
-            'reason_for_caring_for_children' => 'nullable|string|max:255',
-            'number_of_children_cared_for_not_in_family_under_18' => 'required|integer|min:0',
-            'relationship_to_family_members_lost_during_war' => 'required|array',
+            // 'relationship_to_family_members_lost_during_war' => 'required|array',
             'lost_family_member_during_war' => 'nullable|string|max:255',
             'urgent_basic_needs_for_family' => 'required|array',
             'secondary_needs_for_family' => 'nullable|array',
@@ -56,12 +52,8 @@ class FormController extends Controller
             'housing_ownership' => 'required|string|max:255',
             'type_of_housing' => 'required|string|max:255',
             'extent_of_housing_damage_due_to_war' => 'required|string|max:255',
-            'displaced_governorate' => 'required|string|max:255',
+            // 'displaced_governorate' => 'required|string|max:255',
             'displaced_due_to_war_and_changed_housing_location' => 'required|string',
-            'displaced_population_cluster' => 'nullable|string|max:255',
-            'displaced_street' => 'nullable|string|max:255',
-            'displaced_place_of_displacement' => 'required|string|max:255',
-            'displaced_address' => 'nullable|string|max:255',
             'account_holder_name' => 'nullable|string|max:255',
             'bank_name_branch' => 'nullable|string|max:255',
             'account_holder_id_number' => 'nullable|string|max:255',
@@ -69,6 +61,31 @@ class FormController extends Controller
             'agree_to_share_data_for_assistance' => 'required|string',
         ];
 
+        // Conditional fields
+        if ($request->input('marital_status') == 'متزوج') {
+            $rules['spouse_id_number'] = 'required|string|max:255';
+            $rules['spouse_id_type'] = 'required|string|max:255';
+            $rules['spouse_full_name'] = 'required|string|max:255';
+        }
+
+        if ($request->input('care_for_non_family_members') == 'نعم') {
+            $rules['reason_for_caring_for_children'] = 'nullable|string|max:255';
+            $rules['number_of_children_cared_for_not_in_family_under_18'] = 'required|integer|min:0';
+        }
+
+        if ($request->input('lost_family_member_during_war') == 'نعم') {
+            $rules['relationship_to_family_members_lost_during_war'] = 'required|array';
+        }
+//care_for_non_family_members
+        
+
+        if ($request->input('displaced_due_to_war_and_changed_housing_location') == 'نعم') {
+            $rules['displaced_governorate'] = 'required|string|max:255';
+            $rules['displaced_population_cluster'] = 'nullable|string|max:255';
+            $rules['displaced_street'] = 'nullable|string|max:255';
+            $rules['displaced_place_of_displacement'] = 'required|string|max:255';
+            $rules['displaced_address'] = 'nullable|string|max:255';
+        }
         // Arabic validation messages
         $messages = [
             'required' => 'الحقل :attribute مطلوب.',
@@ -123,7 +140,7 @@ class FormController extends Controller
             'housing_ownership' => 'ملكية السكن',
             'type_of_housing' => 'نوع السكن',
             'extent_of_housing_damage_due_to_war' => 'حجم الأضرار بالسكن بسبب الحرب',
-            'displaced_governorate' => 'المحافظة المهجرة',
+            // 'displaced_governorate' => 'المحافظة المهجرة',
             'displaced_due_to_war_and_changed_housing_location' => 'التهجير بسبب الحرب وتغيير موقع السكن',
             'displaced_population_cluster' => 'التجمع السكني المهجر',
             'displaced_street' => 'شارع التهجير',
@@ -137,15 +154,16 @@ class FormController extends Controller
         ];
 
         // Validate the request
-        $validator = \Validator::make($request->all(), $rules, $messages, $attributes);
+        $validator = Validator::make($request->all(), $rules, $messages, $attributes);
 
+        // dd($validator->errors());
         if ($validator->fails()) {
             // Get all error messages and join them into one string
-            $errorMessages = implode('<br>', $validator->errors()->all());
+            $errorMessages = implode('<br>', array: $validator->errors()->all());
             flash()
                 ->option('position', 'top-center')
                 ->translate(['language' => 'ar'])
-                ->option('timeout', 10000)->error($errorMessages, [], "خطأ!");
+                ->option('timeout', 20000)->error($errorMessages, [], "خطأ!");
             return back()->withInput();
         }
 
@@ -158,11 +176,17 @@ class FormController extends Controller
             }
         }
 
+        
+        if($data['spouse_id_type'] == 'اختار') {
+            $data['spouse_id_type'] = '';
+        }
         WarForm::create($data);
 
         flash()
         ->option('position', 'top-center')
         ->translate(['language' => 'ar'])
-        ->option('timeout', 10000)->success("تم حفظ البيانات بنجاح", [], "رائع!");
+        ->option('timeout', 20000)->success("تم حفظ البيانات بنجاح", [], "رائع!");
+
+        return back()->withInput();
     }
 }

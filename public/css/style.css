@@ -1144,9 +1144,23 @@
         text-align: end !important;
         height: auto !important;
     }
-    
+
     .select2-container--default.select2-container--focus .select2-selection--multiple {
         border: solid #F0B729 1px;
         outline: 0;
         direction: rtl;
+    }
+    .select2-container--default .select2-selection--multiple.select2-selection--clearable {
+        direction: rtl !important;
+        display: flex !important;
+    }
+    .select2-container--default .select2-results>.select2-results__options {
+        direction: rtl !important;
+    }
+
+    .select2-container {
+        direction: rtl !important;
+    }
+    .select2-container--default .select2-selection--multiple {
+        width: max-content !important;
     }

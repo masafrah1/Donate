@@ -1141,7 +1141,7 @@
     }
 
     .select2-container--default .select2-search--inline .select2-search__field {
-        text-align: end !important;
+        /* text-align: end !important; */
         height: auto !important;
     }
 
@@ -1160,6 +1160,7 @@
 
     .select2-container {
         direction: rtl !important;
+        display: block !important;
     }
     .select2-container--default .select2-selection--multiple {
         width: max-content !important;

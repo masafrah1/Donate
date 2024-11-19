@@ -5,8 +5,9 @@
                     <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="bg-light p-5 rounded h-100 wow fadeInUp" data-wow-delay="0.2s">
                             <h2 class="text-primary text-center rtl">تبرع</h2>
-                            <p class="mb-4 rtl text-center">اكفل يتيماً، وكن جزءاً من مستقبل مشرق <a
-                                    class="text-primary fw-bold" href="https://htmlcodex.com/contact-form">حمل الان</a>.
+                            <p class="mb-4 rtl text-center">اكفل يتيماً، وكن جزءاً من مستقبل مشرق
+                                {{-- <a
+                                    class="text-primary fw-bold" href="https://htmlcodex.com/contact-form">حمل الان</a>. --}}
                             </p>
                             <form action="{{ route('donation.submit') }}" method="POST">
                                 @csrf
@@ -23,6 +24,14 @@
                                             <label for="program">البرنامج <span class="text-danger">*</span></label>
                                         </div>
                                     </div>
+
+                                    {{-- <div class="col-12">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="donor_type" name="donor_type">
+                                            <label class="form-check-label" for="donor_type">هل المتبرع شركة؟</label>
+                                        </div>
+                                    </div> --}}
+
                                     <div class="col-12">
                                         <div class="form-switch d-flex justify-content-start align-items-center">
                                             <label class="form-check-label mb-0" for="donor_type">هل المتبرع
@@ -31,6 +40,8 @@
                                                 name="donor_type">
                                         </div>
                                     </div>
+
+
                                     <div class="col-lg-12 col-xl-6 person-info">
                                         <div class="form-floating">
                                             <input type="text" class="form-control border-0" id="first_name"
@@ -81,7 +92,7 @@
                                     <div class="col-lg-12 col-xl-6">
                                         <div class="form-floating">
                                             <select class="form-select border-0" id="country" name="country" required>
-                                                <option selected disabled>اختر البلد</option>
+                                                <option selected disabled value="">اختر البلد</option>
                                                 @foreach ($countries as $code => $name)
                                                     <option value="{{ $code }}">{{ $name }}</option>
                                                 @endforeach
@@ -166,3 +177,13 @@
             </div>
         </div>
         <!-- About End -->
+
+        <script>
+            document.querySelector('form').addEventListener('submit', function(e) {
+                const countrySelect = document.getElementById('country');
+                if (countrySelect.value === "") {
+                    e.preventDefault();
+                    alert('يرجى اختيار البلد.');
+                }
+            });
+        </script>

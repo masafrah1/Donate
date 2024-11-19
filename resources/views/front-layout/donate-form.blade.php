@@ -5,8 +5,9 @@
                     <div class="col-xl-7 wow fadeInLeft" data-wow-delay="0.2s">
                         <div class="bg-light p-5 rounded h-100 wow fadeInUp" data-wow-delay="0.2s">
                             <h2 class="text-primary text-center rtl">تبرع</h2>
-                            <p class="mb-4 rtl text-center">اكفل يتيماً، وكن جزءاً من مستقبل مشرق <a
-                                    class="text-primary fw-bold" href="https://htmlcodex.com/contact-form">حمل الان</a>.
+                            <p class="mb-4 rtl text-center">اكفل يتيماً، وكن جزءاً من مستقبل مشرق
+                                {{-- <a
+                                    class="text-primary fw-bold" href="https://htmlcodex.com/contact-form">حمل الان</a>. --}}
                             </p>
                             <form action="{{ route('donation.submit') }}" method="POST">
                                 @csrf

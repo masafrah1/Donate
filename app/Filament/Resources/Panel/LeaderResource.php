@@ -12,15 +12,15 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
-use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Checkbox;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
 use Illuminate\Database\Eloquent\Builder;
 use Filament\Tables\Columns\CheckboxColumn;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Panel\LeaderResource\Pages;
-use App\Filament\Resources\Panel\LeaderResource\RelationManagers;
 use PhpOffice\PhpSpreadsheet\Calculation\Logical\Boolean;
+use App\Filament\Resources\Panel\LeaderResource\RelationManagers;
 
 class LeaderResource extends Resource
 {
@@ -196,6 +196,7 @@ class LeaderResource extends Resource
 
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
+                    \pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction::make()
                 ]),
             ])
             ->defaultSort('id', 'desc');

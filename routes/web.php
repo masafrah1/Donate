@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DonationController;
+use App\Http\Controllers\FormController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,5 +17,8 @@ Route::get('/offline-donate', [DonationController::class, 'offlineDonation'])->n
 
 // Route to handle the donation form submission
 Route::post('/donate', [DonationController::class, 'store'])->name('donation.submit');
+
+Route::get(uri: '/war-form', action: [FormController::class, 'index'])->name(name: 'warForm.index');
+Route::post('/war-form', action: [FormController::class, 'store'])->name('warForm.submit');
 
 

@@ -19,6 +19,6 @@ Route::get('/offline-donate', [DonationController::class, 'offlineDonation'])->n
 Route::post('/donate', [DonationController::class, 'store'])->name('donation.submit');
 
 Route::get(uri: '/war-form', action: [FormController::class, 'index'])->name(name: 'warForm.index');
-Route::post('/war-form', action: [FormController::class, 'warFormStore'])->name('warForm.submit');
+Route::post('/war-form', action: [FormController::class, 'store'])->name('warForm.submit');
 
 

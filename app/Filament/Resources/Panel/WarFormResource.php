@@ -19,6 +19,8 @@ use Filament\Forms\Components\DatePicker;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\Panel\WarFormResource\Pages;
 use App\Filament\Resources\Panel\WarFormResource\RelationManagers;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+
 
 class WarFormResource extends Resource
 {
@@ -981,6 +983,7 @@ class WarFormResource extends Resource
 
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
+                    ExportBulkAction::make()
                 ]),
             ])
             ->defaultSort('id', 'desc');

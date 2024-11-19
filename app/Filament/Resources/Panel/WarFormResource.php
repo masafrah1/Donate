@@ -4,8 +4,8 @@ namespace App\Filament\Resources\Panel;
 
 use Filament\Forms;
 use Filament\Tables;
-use Livewire\Component;
 use App\Models\WarForm;
+use Livewire\Component;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use Filament\Resources\Resource;
@@ -14,14 +14,14 @@ use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
-use Illuminate\Database\Eloquent\Builder;
 use Filament\Forms\Components\DatePicker;
+use Illuminate\Database\Eloquent\Builder;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 use App\Filament\Resources\Panel\WarFormResource\Pages;
-use App\Filament\Resources\Panel\WarFormResource\RelationManagers;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
-
-
+use App\Filament\Resources\Panel\WarFormResource\RelationManagers;
 class WarFormResource extends Resource
 {
     protected static ?string $model = WarForm::class;
@@ -983,7 +983,7 @@ class WarFormResource extends Resource
 
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
-                    ExportBulkAction::make()
+                    ExportBulkAction::make(),
                 ]),
             ])
             ->defaultSort('id', 'desc');

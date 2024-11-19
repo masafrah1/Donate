@@ -127,67 +127,75 @@
                                 </div>
                             </div>
 
-                            <h5 class="text-primary text-center rtl">بيانات الزوج /ة</h5>
-                            <!-- Spouse ID Number -->
-                            <div class="col-lg-12 col-xl-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="spouse_id_number"
-                                        name="spouse_id_number" value="{{ old('spouse_id_number') }}" required
-                                        placeholder="رقم هوية الزوج/ ة">
-                                    <label for="spouse_id_number"> رقم هوية الزوج/ ة <span
-                                        class="text-danger">*</span></label>
-                                    @error('spouse_id_number')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                            <!-- Spouse Information Section -->
+                            <div class="spouse-information-container mb-4" id="spouse-info-section"
+                                style="display: none;">
+                                <h5 class="text-primary text-center rtl">بيانات الزوج /ة</h5>
+
+                                <div class="row mb4">
+                                    <!-- Spouse ID Number -->
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="spouse_id_number"
+                                                name="spouse_id_number" value="{{ old('spouse_id_number') }}" required
+                                                placeholder="رقم هوية الزوج/ ة">
+                                            <label for="spouse_id_number"> رقم هوية الزوج/ ة <span
+                                                    class="text-danger">*</span></label>
+                                            @error('spouse_id_number')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <!-- Spouse ID Type -->
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <select class="form-select border-0" id="spouse_id_type"
+                                                name="spouse_id_type" required>
+                                                <option>اختار</option>
+                                                <option value="فلسطينية"
+                                                    {{ old('spouse_id_type') == 'فلسطينية' ? 'selected' : '' }}>
+                                                    فلسطينية</option>
+                                                <option value="اردنية"
+                                                    {{ old('spouse_id_type') == 'اردنية' ? 'selected' : '' }}>اردنية
+                                                </option>
+                                                <option value="اسرائيلية"
+                                                    {{ old('spouse_id_type') == 'اسرائيلية' ? 'selected' : '' }}>
+                                                    اسرائيلية</option>
+                                                <option value="مصرية"
+                                                    {{ old('spouse_id_type') == 'مصرية' ? 'selected' : '' }}>مصرية
+                                                </option>
+                                                <option value="تصريح اقامة"
+                                                    {{ old('spouse_id_type') == 'تصريح اقامة' ? 'selected' : '' }}>
+                                                    تصريح اقامة</option>
+                                                <option value="وثيقة أخرى"
+                                                    {{ old('spouse_id_type') == 'وثيقة أخرى' ? 'selected' : '' }}>وثيقة
+                                                    أخرى</option>
+                                            </select>
+                                            <label for="spouse_id_type"> نوع هوية الزوج/ ة <span
+                                                    class="text-danger">*</span></label>
+                                            @error('spouse_id_type')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <!-- Spouse Full Name -->
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="spouse_full_name"
+                                                name="spouse_full_name" value="{{ old('spouse_full_name') }}"
+                                                placeholder="الاسم الرباعي للزوج/ ة" required>
+                                            <label for="spouse_full_name">الاسم الرباعي للزوج/ ة <span
+                                                    class="text-danger">*</span></label>
+                                            @error('spouse_full_name')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Spouse ID Type -->
-                            <div class="col-lg-12 col-xl-6">
-                                <div class="form-floating">
-                                    <select class="form-select border-0" id="spouse_id_type" name="spouse_id_type" required>
-                                        <option>اختار</option>
-                                        <option value="فلسطينية"
-                                            {{ old('spouse_id_type') == 'فلسطينية' ? 'selected' : '' }}>
-                                            فلسطينية</option>
-                                        <option value="اردنية"
-                                            {{ old('spouse_id_type') == 'اردنية' ? 'selected' : '' }}>اردنية
-                                        </option>
-                                        <option value="اسرائيلية"
-                                            {{ old('spouse_id_type') == 'اسرائيلية' ? 'selected' : '' }}>
-                                            اسرائيلية</option>
-                                        <option value="مصرية"
-                                            {{ old('spouse_id_type') == 'مصرية' ? 'selected' : '' }}>مصرية
-                                        </option>
-                                        <option value="تصريح اقامة"
-                                            {{ old('spouse_id_type') == 'تصريح اقامة' ? 'selected' : '' }}>
-                                            تصريح اقامة</option>
-                                        <option value="وثيقة أخرى"
-                                            {{ old('spouse_id_type') == 'وثيقة أخرى' ? 'selected' : '' }}>وثيقة
-                                            أخرى</option>
-                                    </select>
-                                    <label for="spouse_id_type"> نوع هوية الزوج/ ة
-                                        <span
-                                        class="text-danger">*</span></label>
-                                    @error('spouse_id_type')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <!-- Spouse Full Name -->
-                            <div class="col-lg-12 col-xl-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="spouse_full_name"
-                                        name="spouse_full_name" value="{{ old('spouse_full_name') }}"
-                                        placeholder="الاسم الرباعي للزوج/ ة" required>
-                                    <label for="spouse_full_name">الاسم الرباعي للزوج/ ة<span
-                                            class="text-danger">*</span></label>
-                                    @error('spouse_full_name')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
                             <h5 class="text-primary text-center rtl">معلومات الاتصال</h5>
                             <!-- Phone Number -->
                             <div class="col-lg-12 col-xl-6">
@@ -274,7 +282,7 @@
                                             طوباس</option>
                                     </select>
                                     <label for="residence_governorate">محافظة السكن <span
-                                        class="text-danger">*</span></label>
+                                            class="text-danger">*</span></label>
                                     @error('residence_governorate')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -357,8 +365,7 @@
                                         @endforeach
                                     </select>
                                     <label for="children_aged_6_18_count">عدد الاطفال بين 6-18 سنة (ادخل صفر
-                                        اذا لا يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        اذا لا يوجد ) <span class="text-danger">*</span></label>
                                     @error('children_aged_6_18_count')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -378,8 +385,7 @@
                                         @endforeach
                                     </select>
                                     <label for="children_under_5_years">عدد الاطفال تحت 5 سنوات (ادخل صفر اذا
-                                        لا يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        لا يوجد ) <span class="text-danger">*</span></label>
                                     @error('children_under_5_years')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -399,8 +405,7 @@
                                         @endforeach
                                     </select>
                                     <label for="number_of_school_students">عدد طلاب المدارس (ادخل صفر اذا لا
-                                        يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        يوجد ) <span class="text-danger">*</span></label>
                                     @error('number_of_school_students')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -420,8 +425,7 @@
                                         @endforeach
                                     </select>
                                     <label for="number_of_university_students">عدد طلاب الجامعات (ادخل صفر اذا
-                                        لا يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        لا يوجد ) <span class="text-danger">*</span></label>
                                     @error('number_of_university_students')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -441,8 +445,7 @@
                                         @endforeach
                                     </select>
                                     <label for="number_of_infants">عدد الاطفال الرضع (ادخل صفر اذا لا يوجد )
-                                        <span
-                                        class="text-danger">*</span></label>
+                                        <span class="text-danger">*</span></label>
                                     @error('number_of_infants')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -453,7 +456,7 @@
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="number_of_people_with_disabilities"
-                                        name="number_of_people_with_disabilities"  required>
+                                        name="number_of_people_with_disabilities" required>
                                         @foreach (range(0, 20) as $number)
                                             <option value="{{ $number }}"
                                                 {{ old('number_of_people_with_disabilities') == $number ? 'selected' : '' }}>
@@ -462,8 +465,7 @@
                                         @endforeach
                                     </select>
                                     <label for="number_of_people_with_disabilities">عدد الاشخاص ذوي الاعاقة
-                                        (ادخل صفر اذا لا يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        (ادخل صفر اذا لا يوجد ) <span class="text-danger">*</span></label>
                                     @error('number_of_people_with_disabilities')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -483,8 +485,7 @@
                                         @endforeach
                                     </select>
                                     <label for="number_of_people_with_chronic_diseases">عدد المصابين بالامراض
-                                        المزمنة (ادخل صفر اذا لا يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        المزمنة (ادخل صفر اذا لا يوجد ) <span class="text-danger">*</span></label>
                                     @error('number_of_people_with_chronic_diseases')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -504,8 +505,7 @@
                                         @endforeach
                                     </select>
                                     <label for="number_of_elderly_over_60">عدد المسنين فوق 60 سنة (ادخل صفر اذا
-                                        لا يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        لا يوجد ) <span class="text-danger">*</span></label>
                                     @error('number_of_elderly_over_60')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -525,8 +525,7 @@
                                         @endforeach
                                     </select>
                                     <label for="number_of_pregnant_women">عدد النساء الحوامل (ادخل صفر اذا لا
-                                        يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        يوجد ) <span class="text-danger">*</span></label>
                                     @error('number_of_pregnant_women')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -546,8 +545,7 @@
                                         @endforeach
                                     </select>
                                     <label for="number_of_breastfeeding_women">عدد النساء المرضعات (ادخل صفر
-                                        اذا لا يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        اذا لا يوجد ) <span class="text-danger">*</span></label>
                                     @error('number_of_breastfeeding_women')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -567,8 +565,7 @@
                                         @endforeach
                                     </select>
                                     <label for="number_of_injured_due_to_war">عدد الجرحى بسبب الحرب (ادخل صفر
-                                        اذا لا يوجد ) <span
-                                        class="text-danger">*</span></label>
+                                        اذا لا يوجد ) <span class="text-danger">*</span></label>
                                     @error('number_of_injured_due_to_war')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -576,83 +573,94 @@
                             </div>
 
                             <!-- Care for Non-Family Members -->
-                            <div class="col-lg-12 col-xl-6">
+                            <div class="col-lg-12 col-xl-6 mb-4">
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="care_for_non_family_members"
                                         name="care_for_non_family_members" required>
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="نعم"
-                                            {{ old('care_for_non_family_members') == 'نعم' ? 'selected' : '' }}>
-                                            نعم</option>
+                                            {{ old('care_for_non_family_members') == 'نعم' ? 'selected' : '' }}>نعم
+                                        </option>
                                         <option value="لا"
-                                            {{ old('care_for_non_family_members') == 'لا' ? 'selected' : '' }}>
-                                            لا</option>
+                                            {{ old('care_for_non_family_members') == 'لا' ? 'selected' : '' }}>لا
+                                        </option>
                                     </select>
-                                    <label for="care_for_non_family_members">هل تقوم برعاية أفراد ليسوا من ضمن
-                                        افراد الاسرة <span
-                                        class="text-danger">*</span></label>
+                                    <label for="care_for_non_family_members">هل تقوم برعاية أفراد ليسوا من ضمن افراد
+                                        الاسرة <span class="text-danger">*</span></label>
                                     @error('care_for_non_family_members')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
 
-                            <h5 class="text-primary text-center rtl">رعاية اطفال ليسو من ضمن العائلة</h5>
+                            <!-- Additional Care Information Section -->
+                            <div id="non-family-care-section" style="display: none;">
+                                <h5 class="text-primary text-center rtl">رعاية اطفال ليسو من ضمن العائلة</h5>
 
-                            <!-- Number of Children Cared for Not in Family Under 18 -->
-                            <div class="col-lg-12 col-xl-12">
-                                <div class="form-floating">
-                                    <select class="form-select border-0"
-                                        id="number_of_children_cared_for_not_in_family_under_18"
-                                        name="number_of_children_cared_for_not_in_family_under_18" required>
-                                        @foreach (range(0, 20) as $number)
-                                            <option value="{{ $number }}"
-                                                {{ old('number_of_children_cared_for_not_in_family_under_18') == $number ? 'selected' : '' }}>
-                                                {{ $number }}
+                                <!-- Number of Children Cared for Not in Family Under 18 -->
+                                <div class="col-lg-12 col-xl-12 mb-4">
+                                    <div class="form-floating">
+                                        <select class="form-select border-0"
+                                            id="number_of_children_cared_for_not_in_family_under_18"
+                                            name="number_of_children_cared_for_not_in_family_under_18" required>
+                                            @foreach (range(0, 20) as $number)
+                                                <option value="{{ $number }}"
+                                                    {{ old('number_of_children_cared_for_not_in_family_under_18') == $number ? 'selected' : '' }}>
+                                                    {{ $number }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <label for="number_of_children_cared_for_not_in_family_under_18">
+                                            عدد الاطفال الذين يتم رعايتهم وليسو من ضمن افراد الاسرة تحت سن 18 سنة :
+                                            (ادخل صفر اذا لا يوجد)
+                                            <span class="text-danger">*</span>
+                                        </label>
+                                        @error('number_of_children_cared_for_not_in_family_under_18')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <!-- Reason for Caring for Children -->
+                                <div class="col-lg-12 col-xl-12 mb-4">
+                                    <div class="form-floating">
+                                        <select class="form-select border-0" id="reason_for_caring_for_children"
+                                            name="reason_for_caring_for_children">
+                                            <option value="">اختار</option>
+                                            <option value="وفاة احد الوالدين او كلاهما"
+                                                {{ old('reason_for_caring_for_children') == 'وفاة احد الوالدين او كلاهما' ? 'selected' : '' }}>
+                                                وفاة احد الوالدين او كلاهما
                                             </option>
-                                        @endforeach
-                                    </select>
-                                    <label for="number_of_children_cared_for_not_in_family_under_18">عدد
-                                        الاطفال الذين يتم رعايتهم وليسو من ضمن افراد الاسرة تحت سن 18 سنة :
-                                        (ادخل صفر اذا لا يوجد ) <span
-                                        class="text-danger">*</span></label>
-                                    @error('number_of_children_cared_for_not_in_family_under_18')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                                            <option value="وفاة كامل العائلة"
+                                                {{ old('reason_for_caring_for_children') == 'وفاة كامل العائلة' ? 'selected' : '' }}>
+                                                وفاة كامل العائلة
+                                            </option>
+                                            <option value="مجهولين"
+                                                {{ old('reason_for_caring_for_children') == 'مجهولين' ? 'selected' : '' }}>
+                                                مجهولين
+                                            </option>
+                                            <option value="فقدان الاتصال بالوالدين او احداهما"
+                                                {{ old('reason_for_caring_for_children') == 'فقدان الاتصال بالوالدين او احداهما' ? 'selected' : '' }}>
+                                                فقدان الاتصال بالوالدين او احداهما
+                                            </option>
+                                            <option value="الاهل خارج القطاع حاليا"
+                                                {{ old('reason_for_caring_for_children') == 'الاهل خارج القطاع حاليا' ? 'selected' : '' }}>
+                                                الاهل خارج القطاع حاليا
+                                            </option>
+                                            <option value="أخرى"
+                                                {{ old('reason_for_caring_for_children') == 'أخرى' ? 'selected' : '' }}>
+                                                أخرى
+                                            </option>
+                                        </select>
+                                        <label for="reason_for_caring_for_children">سبب رعاية الاطفال</label>
+                                        @error('reason_for_caring_for_children')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
                             </div>
 
-                            <!-- Reason for Caring for Children -->
-                            <div class="col-lg-12 col-xl-12">
-                                <div class="form-floating">
-                                    <select class="form-select border-0" id="reason_for_caring_for_children"
-                                        name="reason_for_caring_for_children">
-                                        <option>اختار</option>
-                                        <option value="وفاة احد الوالدين او كلاهما"
-                                            {{ old('reason_for_caring_for_children') == 'وفاة احد الوالدين او كلاهما' ? 'selected' : '' }}>
-                                            وفاة احد الوالدين او كلاهما</option>
-                                        <option value="وفاة كامل العائلة"
-                                            {{ old('reason_for_caring_for_children') == 'وفاة كامل العائلة' ? 'selected' : '' }}>
-                                            وفاة كامل العائلة</option>
-                                        <option value="مجهولين"
-                                            {{ old('reason_for_caring_for_children') == 'مجهولين' ? 'selected' : '' }}>
-                                            مجهولين</option>
-                                        <option value="فقدان الاتصال بالوالدين او احداهما"
-                                            {{ old('reason_for_caring_for_children') == 'فقدان الاتصال بالوالدين او احداهما' ? 'selected' : '' }}>
-                                            فقدان الاتصال بالوالدين او احداهما</option>
-                                        <option value="الاهل خارج القطاع حاليا"
-                                            {{ old('reason_for_caring_for_children') == 'الاهل خارج القطاع حاليا' ? 'selected' : '' }}>
-                                            الاهل خارج القطاع حاليا</option>
-                                        <option value="أخرى"
-                                            {{ old('reason_for_caring_for_children') == 'أخرى' ? 'selected' : '' }}>
-                                            أخرى</option>
-                                    </select>
-                                    <label for="reason_for_caring_for_children">سبب رعاية الاطفال</label>
-                                    @error('reason_for_caring_for_children')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
+
 
                             <h5 class="text-primary text-center rtl">خلال هذه الحرب هل فقدت احد افراد عائلتك
                             </h5>
@@ -684,8 +692,7 @@
                                     <!-- Label placed outside for better structure -->
                                     <label for="relationship_to_family_members_lost_during_war" class="form-label">
                                         خلال هذه الحرب، هل فقدت أحد أفراد عائلتك؟ (تستطيع اختيار أكثر من خيار)
-                                        <span
-                                            class="text-danger">*</span>
+                                        <span class="text-danger">*</span>
                                     </label>
 
                                     <!-- Multi-select dropdown with Select2 -->
@@ -732,8 +739,7 @@
                                     <!-- Label placed outside for better structure -->
                                     <label for="urgent_basic_needs_for_family" class="form-label">
                                         حدد/ي ما هي اهم احتياجاتك الاساسية ذات الاولوية التي تحتاجها الاسرة بشكل عاجل (
-                                        تستطيع اختيار اكثر من خيار) <span
-                                        class="text-danger">*</span>
+                                        تستطيع اختيار اكثر من خيار) <span class="text-danger">*</span>
                                     </label>
 
                                     <!-- Multi-select dropdown with Select2 -->
@@ -911,8 +917,9 @@
                             <!-- Monthly Income in Shekels -->
                             <div class="col-lg-12 col-xl-12">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control border-0" id="monthly_income_shekels"
-                                        name="monthly_income_shekels" value="{{ old('monthly_income_shekels') }}"
+                                    <input type="number" class="form-control border-0 rtl"
+                                        id="monthly_income_shekels" name="monthly_income_shekels"
+                                        value="{{ old('monthly_income_shekels') }}"
                                         placeholder="الدخل الشهري (شيكل)" step="1">
                                     <label for="monthly_income_shekels">الدخل الشهري (شيكل)</label>
                                     @error('monthly_income_shekels')
@@ -970,7 +977,7 @@
                                             ذلك</option>
                                     </select>
                                     <label for="housing_ownership">حيازة المسكن <span
-                                        class="text-danger">*</span></label>
+                                            class="text-danger">*</span></label>
                                     @error('housing_ownership')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -980,7 +987,8 @@
                             <!-- Type of Housing -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
-                                    <select class="form-select border-0" id="type_of_housing" name="type_of_housing" required>
+                                    <select class="form-select border-0" id="type_of_housing" name="type_of_housing"
+                                        required>
                                         <option value="فيلا"
                                             {{ old('type_of_housing') == 'فيلا' ? 'selected' : '' }}>فيلا
                                         </option>
@@ -1006,8 +1014,7 @@
                                             {{ old('type_of_housing') == 'غير ذلك' ? 'selected' : '' }}>غير
                                             ذلك</option>
                                     </select>
-                                    <label for="type_of_housing">نوع المسكن <span
-                                        class="text-danger">*</span></label>
+                                    <label for="type_of_housing">نوع المسكن <span class="text-danger">*</span></label>
                                     @error('type_of_housing')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -1034,8 +1041,7 @@
                                             لم يتضرر</option>
                                     </select>
                                     <label for="extent_of_housing_damage_due_to_war">:حجم الضرر للمسكن نتيجة
-                                        الحرب <span
-                                        class="text-danger">*</span></label>
+                                        الحرب <span class="text-danger">*</span></label>
                                     @error('extent_of_housing_damage_due_to_war')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -1043,184 +1049,200 @@
                             </div>
 
                             <!-- Displaced Due to War and Changed Housing Location -->
-                            <div class="col-lg-12 col-xl-6">
+                            <div class="col-lg-12 col-xl-6 mb-4">
                                 <div class="form-floating">
                                     <select class="form-select border-0"
                                         id="displaced_due_to_war_and_changed_housing_location"
                                         name="displaced_due_to_war_and_changed_housing_location" required>
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="نعم"
                                             {{ old('displaced_due_to_war_and_changed_housing_location') == 'نعم' ? 'selected' : '' }}>
-                                            نعم</option>
+                                            نعم
+                                        </option>
                                         <option value="لا"
                                             {{ old('displaced_due_to_war_and_changed_housing_location') == 'لا' ? 'selected' : '' }}>
-                                            لا</option>
+                                            لا
+                                        </option>
                                     </select>
-                                    <label for="displaced_due_to_war_and_changed_housing_location">: هل تم
-                                        النزوح من المنزل بسبب الحرب وتم تغيير موقع المسكن <span
-                                        class="text-danger">*</span></label>
+                                    <label for="displaced_due_to_war_and_changed_housing_location">
+                                        هل تم النزوح من المنزل بسبب الحرب وتم تغيير موقع المسكن <span
+                                            class="text-danger">*</span>
+                                    </label>
                                     @error('displaced_due_to_war_and_changed_housing_location')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
 
-                            <h5 class="text-primary text-center rtl">اسئلة للاسر التي نزحت من منازلها خلال
-                                الحرب/ بيانات موقع السكن الجديد بعد النزوح</h5>
-                            <!-- Displaced Governorate -->
-                            <div class="col-lg-12 col-xl-6">
-                                <div class="form-floating">
-                                    <select class="form-select border-0" id="displaced_governorate"
-                                        name="displaced_governorate" required>
-                                        <option>اختار</option>
-                                        <option value="غزة"
-                                            {{ old('displaced_governorate') == 'غزة' ? 'selected' : '' }}>غزة
-                                        </option>
-                                        <option value="شمال غزة"
-                                            {{ old('displaced_governorate') == 'شمال غزة' ? 'selected' : '' }}>
-                                            شمال غزة</option>
-                                        <option value="دير البلح"
-                                            {{ old('displaced_governorate') == 'دير البلح' ? 'selected' : '' }}>
-                                            دير البلح</option>
-                                        <option value="خانيونس"
-                                            {{ old('displaced_governorate') == 'خانيونس' ? 'selected' : '' }}>
-                                            خانيونس</option>
-                                        <option value="رفح"
-                                            {{ old('displaced_governorate') == 'رفح' ? 'selected' : '' }}>رفح
-                                        </option>
-                                        <option value="الخليل"
-                                            {{ old('displaced_governorate') == 'الخليل' ? 'selected' : '' }}>
-                                            الخليل</option>
-                                        <option value="بيت لحم"
-                                            {{ old('displaced_governorate') == 'بيت لحم' ? 'selected' : '' }}>
-                                            بيت لحم</option>
-                                        <option value="نابلس"
-                                            {{ old('displaced_governorate') == 'نابلس' ? 'selected' : '' }}>
-                                            نابلس</option>
-                                        <option value="جنين"
-                                            {{ old('displaced_governorate') == 'جنين' ? 'selected' : '' }}>
-                                            جنين</option>
-                                        <option value="طولكرم"
-                                            {{ old('displaced_governorate') == 'طولكرم' ? 'selected' : '' }}>
-                                            طولكرم</option>
-                                        <option value="اريحا"
-                                            {{ old('displaced_governorate') == 'اريحا' ? 'selected' : '' }}>
-                                            اريحا</option>
-                                        <option value="رام الله"
-                                            {{ old('displaced_governorate') == 'رام الله' ? 'selected' : '' }}>
-                                            رام الله</option>
-                                        <option value="قلقيلية"
-                                            {{ old('displaced_governorate') == 'قلقيلية' ? 'selected' : '' }}>
-                                            قلقيلية</option>
-                                        <option value="سلفيت"
-                                            {{ old('displaced_governorate') == 'سلفيت' ? 'selected' : '' }}>
-                                            سلفيت</option>
-                                        <option value="القدس"
-                                            {{ old('displaced_governorate') == 'القدس' ? 'selected' : '' }}>
-                                            القدس</option>
-                                        <option value="يطا"
-                                            {{ old('displaced_governorate') == 'يطا' ? 'selected' : '' }}>يطا
-                                        </option>
-                                        <option value="طوباس"
-                                            {{ old('displaced_governorate') == 'طوباس' ? 'selected' : '' }}>
-                                            طوباس</option>
-                                    </select>
-                                    <label for="displaced_governorate">المحافظة <span
-                                        class="text-danger">*</span></label>
-                                    @error('displaced_governorate')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
+                            <!-- Displaced Housing Information Section (Initially Hidden) -->
+                            <div id="displaced-housing-section" style="display: none;">
+                                <h5 class="text-primary text-center rtl">اسئلة للاسر التي نزحت من منازلها خلال الحرب/
+                                    بيانات موقع السكن الجديد بعد النزوح</h5>
+                                <div class="row">
+                                    <!-- Displaced Governorate -->
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <select class="form-select border-0" id="displaced_governorate"
+                                                name="displaced_governorate" required>
+                                                <option value="">اختار</option>
+                                                <option value="غزة"
+                                                    {{ old('displaced_governorate') == 'غزة' ? 'selected' : '' }}>غزة
+                                                </option>
+                                                <option value="شمال غزة"
+                                                    {{ old('displaced_governorate') == 'شمال غزة' ? 'selected' : '' }}>
+                                                    شمال غزة</option>
+                                                <option value="دير البلح"
+                                                    {{ old('displaced_governorate') == 'دير البلح' ? 'selected' : '' }}>
+                                                    دير البلح</option>
+                                                <option value="خانيونس"
+                                                    {{ old('displaced_governorate') == 'خانيونس' ? 'selected' : '' }}>
+                                                    خانيونس</option>
+                                                <option value="رفح"
+                                                    {{ old('displaced_governorate') == 'رفح' ? 'selected' : '' }}>رفح
+                                                </option>
+                                                <option value="الخليل"
+                                                    {{ old('displaced_governorate') == 'الخليل' ? 'selected' : '' }}>
+                                                    الخليل</option>
+                                                <option value="بيت لحم"
+                                                    {{ old('displaced_governorate') == 'بيت لحم' ? 'selected' : '' }}>
+                                                    بيت
+                                                    لحم</option>
+                                                <option value="نابلس"
+                                                    {{ old('displaced_governorate') == 'نابلس' ? 'selected' : '' }}>
+                                                    نابلس
+                                                </option>
+                                                <option value="جنين"
+                                                    {{ old('displaced_governorate') == 'جنين' ? 'selected' : '' }}>
+                                                    جنين
+                                                </option>
+                                                <option value="طولكرم"
+                                                    {{ old('displaced_governorate') == 'طولكرم' ? 'selected' : '' }}>
+                                                    طولكرم</option>
+                                                <option value="اريحا"
+                                                    {{ old('displaced_governorate') == 'اريحا' ? 'selected' : '' }}>
+                                                    اريحا
+                                                </option>
+                                                <option value="رام الله"
+                                                    {{ old('displaced_governorate') == 'رام الله' ? 'selected' : '' }}>
+                                                    رام
+                                                    الله</option>
+                                                <option value="قلقيلية"
+                                                    {{ old('displaced_governorate') == 'قلقيلية' ? 'selected' : '' }}>
+                                                    قلقيلية</option>
+                                                <option value="سلفيت"
+                                                    {{ old('displaced_governorate') == 'سلفيت' ? 'selected' : '' }}>
+                                                    سلفيت
+                                                </option>
+                                                <option value="القدس"
+                                                    {{ old('displaced_governorate') == 'القدس' ? 'selected' : '' }}>
+                                                    القدس
+                                                </option>
+                                                <option value="يطا"
+                                                    {{ old('displaced_governorate') == 'يطا' ? 'selected' : '' }}>يطا
+                                                </option>
+                                                <option value="طوباس"
+                                                    {{ old('displaced_governorate') == 'طوباس' ? 'selected' : '' }}>
+                                                    طوباس
+                                                </option>
+                                            </select>
+                                            <label for="displaced_governorate">المحافظة <span
+                                                    class="text-danger">*</span></label>
+                                            @error('displaced_governorate')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
 
-                            <!-- Displaced Population Cluster -->
-                            <div class="col-lg-12 col-xl-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control border-0"
-                                        id="displaced_population_cluster" name="displaced_population_cluster"
-                                        value="{{ old('displaced_population_cluster') }}"
-                                        placeholder="التجمع السكاني">
-                                    <label for="displaced_population_cluster">:التجمع السكاني</label>
-                                    @error('displaced_population_cluster')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
+                                    <!-- Displaced Population Cluster -->
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0"
+                                                id="displaced_population_cluster" name="displaced_population_cluster"
+                                                value="{{ old('displaced_population_cluster') }}"
+                                                placeholder="التجمع السكاني">
+                                            <label for="displaced_population_cluster">التجمع السكاني</label>
+                                            @error('displaced_population_cluster')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
 
-                            <!-- Displaced Street -->
-                            <div class="col-lg-12 col-xl-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="displaced_street"
-                                        name="displaced_street" value="{{ old('displaced_street') }}"
-                                        placeholder="الشارع">
-                                    <label for="displaced_street">الشارع</label>
-                                    @error('displaced_street')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
+                                    <!-- Displaced Street -->
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="displaced_street"
+                                                name="displaced_street" value="{{ old('displaced_street') }}"
+                                                placeholder="الشارع">
+                                            <label for="displaced_street">الشارع</label>
+                                            @error('displaced_street')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
 
-                            <!-- Displaced Address -->
-                            <div class="col-lg-12 col-xl-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="displaced_address"
-                                        name="displaced_address" value="{{ old('displaced_address') }}"
-                                        placeholder="العنوان">
-                                    <label for="displaced_address">العنوان</label>
-                                    @error('displaced_address')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
+                                    <!-- Displaced Address -->
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0"
+                                                id="displaced_address" name="displaced_address"
+                                                value="{{ old('displaced_address') }}" placeholder="العنوان">
+                                            <label for="displaced_address">العنوان</label>
+                                            @error('displaced_address')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
 
-                            <!-- Displaced Place of Displacement -->
-                            <div class="col-lg-12 col-xl-6">
-                                <div class="form-floating">
-                                    <select class="form-select border-0" id="displaced_place_of_displacement"
-                                        name="displaced_place_of_displacement" required>
-                                        <option>اختار</option>
-                                        <option value="مدارس الاونروا"
-                                            {{ old('displaced_place_of_displacement') == 'مدارس الاونروا' ? 'selected' : '' }}>
-                                            مدارس الاونروا</option>
-                                        <option value="مدارس حكومية"
-                                            {{ old('displaced_place_of_displacement') == 'مدارس حكومية' ? 'selected' : '' }}>
-                                            مدارس حكومية</option>
-                                        <option value="منزل للاقارب بمقابل"
-                                            {{ old('displaced_place_of_displacement') == 'منزل للاقارب بمقابل' ? 'selected' : '' }}>
-                                            منزل للاقارب بمقابل</option>
-                                        <option value="منزل اقارب بدون مقابل"
-                                            {{ old('displaced_place_of_displacement') == 'منزل اقارب بدون مقابل' ? 'selected' : '' }}>
-                                            منزل اقارب بدون مقابل</option>
-                                        <option value="منزل اخر للعائلة"
-                                            {{ old('displaced_place_of_displacement') == 'منزل اخر للعائلة' ? 'selected' : '' }}>
-                                            منزل اخر للعائلة</option>
-                                        <option value="منزل مستأجر"
-                                            {{ old('displaced_place_of_displacement') == 'منزل مستأجر' ? 'selected' : '' }}>
-                                            منزل مستأجر</option>
-                                        <option value="مستشفيات"
-                                            {{ old('displaced_place_of_displacement') == 'مستشفيات' ? 'selected' : '' }}>
-                                            مستشفيات</option>
-                                        <option value="خيمة"
-                                            {{ old('displaced_place_of_displacement') == 'خيمة' ? 'selected' : '' }}>
-                                            خيمة</option>
-                                        <option value="كنيسة"
-                                            {{ old('displaced_place_of_displacement') == 'كنيسة' ? 'selected' : '' }}>
-                                            كنيسة</option>
-                                        <option value="قاعات"
-                                            {{ old('displaced_place_of_displacement') == 'قاعات' ? 'selected' : '' }}>
-                                            قاعات</option>
-                                        <option value="مراكز ايوائية"
-                                            {{ old('displaced_place_of_displacement') == 'مراكز ايوائية' ? 'selected' : '' }}>
-                                            مراكز ايوائية</option>
-                                        <option value="اخرى"
-                                            {{ old('displaced_place_of_displacement') == 'اخرى' ? 'selected' : '' }}>
-                                            اخرى</option>
-                                    </select>
-                                    <label for="displaced_place_of_displacement">مكان النزوح <span
-                                        class="text-danger">*</span></label>
-                                    @error('displaced_place_of_displacement')
-                                        <div class="text-danger">{{ $message }}</div>
-                                    @enderror
+                                    <!-- Displaced Place of Displacement -->
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <select class="form-select border-0" id="displaced_place_of_displacement"
+                                                name="displaced_place_of_displacement" required>
+                                                <option value="">اختار</option>
+                                                <option value="مدارس الاونروا"
+                                                    {{ old('displaced_place_of_displacement') == 'مدارس الاونروا' ? 'selected' : '' }}>
+                                                    مدارس الاونروا</option>
+                                                <option value="مدارس حكومية"
+                                                    {{ old('displaced_place_of_displacement') == 'مدارس حكومية' ? 'selected' : '' }}>
+                                                    مدارس حكومية</option>
+                                                <option value="منزل للاقارب بمقابل"
+                                                    {{ old('displaced_place_of_displacement') == 'منزل للاقارب بمقابل' ? 'selected' : '' }}>
+                                                    منزل للاقارب بمقابل</option>
+                                                <option value="منزل اقارب بدون مقابل"
+                                                    {{ old('displaced_place_of_displacement') == 'منزل اقارب بدون مقابل' ? 'selected' : '' }}>
+                                                    منزل اقارب بدون مقابل</option>
+                                                <option value="منزل اخر للعائلة"
+                                                    {{ old('displaced_place_of_displacement') == 'منزل اخر للعائلة' ? 'selected' : '' }}>
+                                                    منزل اخر للعائلة</option>
+                                                <option value="منزل مستأجر"
+                                                    {{ old('displaced_place_of_displacement') == 'منزل مستأجر' ? 'selected' : '' }}>
+                                                    منزل مستأجر</option>
+                                                <option value="مستشفيات"
+                                                    {{ old('displaced_place_of_displacement') == 'مستشفيات' ? 'selected' : '' }}>
+                                                    مستشفيات</option>
+                                                <option value="خيمة"
+                                                    {{ old('displaced_place_of_displacement') == 'خيمة' ? 'selected' : '' }}>
+                                                    خيمة</option>
+                                                <option value="كنيسة"
+                                                    {{ old('displaced_place_of_displacement') == 'كنيسة' ? 'selected' : '' }}>
+                                                    كنيسة</option>
+                                                <option value="قاعات"
+                                                    {{ old('displaced_place_of_displacement') == 'قاعات' ? 'selected' : '' }}>
+                                                    قاعات</option>
+                                                <option value="مراكز ايوائية"
+                                                    {{ old('displaced_place_of_displacement') == 'مراكز ايوائية' ? 'selected' : '' }}>
+                                                    مراكز ايوائية</option>
+                                                <option value="اخرى"
+                                                    {{ old('displaced_place_of_displacement') == 'اخرى' ? 'selected' : '' }}>
+                                                    اخرى</option>
+                                            </select>
+                                            <label for="displaced_place_of_displacement">مكان النزوح <span
+                                                    class="text-danger">*</span></label>
+                                            @error('displaced_place_of_displacement')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -1325,3 +1347,54 @@
     </div>
 </div>
 <!-- About End -->
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const maritalStatus = document.getElementById('marital_status');
+        const spouseInfoSection = document.getElementById('spouse-info-section');
+
+        // Show or hide the Spouse Information Section based on marital status
+        maritalStatus.addEventListener('change', function() {
+            if (this.value === 'متزوج') {
+                spouseInfoSection.style.display = 'block';
+            } else {
+                spouseInfoSection.style.display = 'none';
+            }
+        });
+
+        // Trigger the change event on page load to handle pre-selected value
+        maritalStatus.dispatchEvent(new Event('change'));
+    });
+</script>
+
+<!-- JavaScript -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const careSelect = document.getElementById('care_for_non_family_members');
+        const nonFamilyCareSection = document.getElementById('non-family-care-section');
+
+        // Show or hide the section based on the selection
+        careSelect.addEventListener('change', function() {
+            if (this.value === 'نعم') {
+                nonFamilyCareSection.style.display = 'block';
+            } else {
+                nonFamilyCareSection.style.display = 'none';
+            }
+        });
+
+        // Trigger the change event on page load to handle pre-selected values
+        careSelect.dispatchEvent(new Event('change'));
+    });
+</script>
+
+<script>
+    document.getElementById('displaced_due_to_war_and_changed_housing_location').addEventListener('change', function() {
+        var displacedSection = document.getElementById('displaced-housing-section');
+        if (this.value === 'نعم') {
+            displacedSection.style.display = 'block';
+        } else {
+            displacedSection.style.display = 'none';
+        }
+    });
+</script>

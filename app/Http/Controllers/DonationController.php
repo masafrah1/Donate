@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\CountryCode;
-use App\Models\Leader;
-use App\Models\OfflineAccount;
-use App\Models\Program;
-use Illuminate\Http\Request;
 use Validator;
+use App\Models\Leader;
+use App\Models\Program;
+use App\Enums\CountryCode;
+use Illuminate\Http\Request;
+use App\Models\OfflineAccount;
 use Illuminate\Support\Facades\App;
 
 class DonationController extends Controller
@@ -92,7 +92,7 @@ class DonationController extends Controller
             flash()
                 ->option('position', 'top-center')
                 ->translate(['language' => 'ar'])
-                ->option('timeout', 10000)->error($errorMessages, [], "خطأ!");
+                ->option('timeout', 20000)->error($errorMessages, [], "خطأ!");
             return back()->withInput();
         }
 
@@ -118,7 +118,7 @@ class DonationController extends Controller
         flash()
         ->option('position', 'top-center')
         ->translate(['language' => 'ar'])
-        ->option('timeout', 10000)->success("شكرًا لتبرعك الكريم!", [], "رائع!");
+        ->option('timeout', 20000)->success("شكرًا لتبرعك الكريم!", [], "رائع!");
 
 
 

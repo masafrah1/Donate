@@ -150,7 +150,8 @@ class LeaderResource extends Resource
         return $table
             ->poll('60s')
             ->columns([
-                TextColumn::make('donor_type'),
+                TextColumn::make('donor_type') ->label('Donor Type') // Column label
+                ->getStateUsing(fn ($record) => $record->donor_type ? 'Company' : 'Personal'),
 
                 TextColumn::make('first_name')
                     ->sortable()

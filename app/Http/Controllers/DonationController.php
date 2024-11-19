@@ -96,6 +96,8 @@ class DonationController extends Controller
             return back()->withInput();
         }
 
+         // Handle program redirection based on payment method
+         $program = Program::find($request->program);
         // Store donation data
         Leader::create([
             'program_id' => $request->program,
@@ -108,7 +110,7 @@ class DonationController extends Controller
             'currency' => $request->currency,
             'amount' => $request->amount,
             'number_orphans' => $request->number_orphans,
-            'payment_method' => $request->payment_method,
+            'payment_method' => $program->pay_link ? $request->payment_method : 'Offline',
             'is_private' => $request->boolean('is_private'),
             'donor_type' => $isCompany,  // Using boolean value directly
         ]);
@@ -118,8 +120,7 @@ class DonationController extends Controller
         ->translate(['language' => 'ar'])
         ->option('timeout', 10000)->success("شكرًا لتبرعك الكريم!", [], "رائع!");
 
-        // Handle program redirection based on payment method
-        $program = Program::find($request->program);
+
 
         $paymentMethod = strtolower($request->payment_method);
         $payLink = $program->pay_link;

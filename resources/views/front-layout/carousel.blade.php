@@ -25,7 +25,7 @@
                                 <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2" href="/about">إقرأ
                                     المزيد</a>
                                 <a class="btn btn-primary rounded-pill py-3 px-4 px-md-5 ms-2"
-                                    href="#donationSection">تبرع الآن</a>
+                                    href="/">تبرع الآن</a>
                             </div>
                             <div class="d-flex align-items-start justify-content-start justify-content-md-start rtl">
                                 <h2 class="text-white me-2">تابعنا:</h2>

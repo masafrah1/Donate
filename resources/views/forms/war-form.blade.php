@@ -1,5 +1,5 @@
 <!-- Abvout Start -->
-<div class="container-fluid about py-5">
+<div class="container-fluid about py-4">
     <div class="container py-5" id="donationSection">
         <div class="row g-5 align-items-center">
             <div class="col-xl-12 wow fadeInLeft" data-wow-delay="0.2s">
@@ -46,17 +46,56 @@
                                 </div>
                             </div>
 
-                            <!-- Full Name -->
+                            <!-- First Name -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0" id="full_name" name="full_name"
-                                        value="{{ old('full_name') }}" placeholder="الاسم الرباعي" required>
-                                    <label for="full_name">الاسم الرباعي <span class="text-danger">*</span></label>
-                                    @error('full_name')
+                                    <input type="text" class="form-control border-0" id="first_name"
+                                        name="first_name" value="{{ old('first_name') }}" placeholder="الاسم الأول"
+                                        required>
+                                    <label for="first_name">الاسم الأول <span class="text-danger">*</span></label>
+                                    @error('first_name')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
                             </div>
+
+                            <!-- Second Name -->
+                            <div class="col-lg-12 col-xl-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="second_name"
+                                        name="second_name" value="{{ old('second_name') }}" placeholder="اسم الأب" required>
+                                    <label for="second_name">اسم الأب <span class="text-danger">*</span></label>
+                                    @error('second_name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <!-- Third Name -->
+                            <div class="col-lg-12 col-xl-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="third_name"
+                                        name="third_name" value="{{ old('third_name') }}" placeholder="اسم الجد" required>
+                                    <label for="third_name">اسم الجد <span class="text-danger">*</span></label>
+                                    @error('third_name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <!-- Family Name -->
+                            <div class="col-lg-12 col-xl-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control border-0" id="family_name"
+                                        name="family_name" value="{{ old('family_name') }}" placeholder="اسم العائلة"
+                                        required>
+                                    <label for="family_name">اسم العائلة <span class="text-danger">*</span></label>
+                                    @error('family_name')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
 
                             <!-- Gender -->
                             <div class="col-lg-12 col-xl-6">
@@ -102,7 +141,8 @@
                                             يتزوج ابدا
 
                                         </option>
-                                        <option value="مطلق" {{ old('marital_status') == 'مطلق' ? 'selected' : '' }}>
+                                        <option value="مطلق"
+                                            {{ old('marital_status') == 'مطلق' ? 'selected' : '' }}>
                                             مطلق
                                         </option>
                                         <option value="مهجور"
@@ -111,7 +151,8 @@
                                         <option value="منفصل"
                                             {{ old('marital_status') == 'منفصل' ? 'selected' : '' }}>منفصل
                                         </option>
-                                        <option value="ارمل" {{ old('marital_status') == 'ارمل' ? 'selected' : '' }}>
+                                        <option value="ارمل"
+                                            {{ old('marital_status') == 'ارمل' ? 'selected' : '' }}>
                                             ارمل
                                         </option>
                                         <option value="عقد لاول مرة ولم يتم الدخول"
@@ -127,17 +168,19 @@
                                 </div>
                             </div>
 
+
                             <!-- Spouse Information Section -->
                             <div class="mb-4" id="spouse-info-section" style="display: none;">
-                                <h5 class="text-primary text-center rtl">بيانات الزوج /ة</h5>
 
+                                <h5 class="text-primary text-center rtl">بيانات الزوج /ة</h5>
+                                <hr>
                                 <div class="row mb4">
                                     <!-- Spouse ID Number -->
                                     <div class="col-lg-12 col-xl-6 mb-4">
                                         <div class="form-floating">
                                             <input type="text" class="form-control border-0" id="spouse_id_number"
-                                                name="spouse_id_number" value="{{ old('spouse_id_number') }}" required
-                                                placeholder="رقم هوية الزوج/ ة">
+                                                name="spouse_id_number" value="{{ old('spouse_id_number') }}"
+                                                required placeholder="رقم هوية الزوج/ ة">
                                             <label for="spouse_id_number"> رقم هوية الزوج/ ة <span
                                                     class="text-danger">*</span></label>
                                             @error('spouse_id_number')
@@ -196,6 +239,7 @@
                             </div>
 
                             <h5 class="text-primary text-center rtl">معلومات الاتصال</h5>
+                            <hr>
                             <!-- Phone Number -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
@@ -329,6 +373,7 @@
 
                             <h5 class="text-primary text-center rtl">التكوين الاسري: هل يوجد من بين افراد
                                 الاسرة الفئات التالية :(ادخل صفر اذا لا يوجد )</h5>
+                            <hr>
 
                             <!-- Family Members Count -->
                             <div class="col-lg-12 col-xl-6">
@@ -594,8 +639,9 @@
 
                             <!-- Additional Care Information Section -->
                             <div id="non-family-care-section" style="display: none;">
-                                <h5 class="text-primary text-center rtl">رعاية اطفال ليسو من ضمن العائلة</h5>
 
+                                <h5 class="text-primary text-center rtl">رعاية اطفال ليسو من ضمن العائلة</h5>
+                                <hr>
                                 <!-- Number of Children Cared for Not in Family Under 18 -->
                                 <div class="col-lg-12 col-xl-12 mb-4">
                                     <div class="form-floating">
@@ -663,6 +709,7 @@
 
                             <h5 class="text-primary text-center rtl">خلال هذه الحرب هل فقدت احد افراد عائلتك
                             </h5>
+                            <hr>
                             <!-- Lost Family Member During War -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
@@ -686,8 +733,9 @@
 
                             <!-- Relationship Section: Initially Hidden -->
                             <div id="relationship-section" style="display: none;">
-                                <h5 class="text-primary text-center rtl">صلة القرابة</h5>
 
+                                <h5 class="text-primary text-center rtl">صلة القرابة</h5>
+                                <hr>
                                 <!-- Relationship to Family Members Lost During War -->
                                 <div class="col-lg-12 col-xl-6 rtl">
                                     <div class="form-group rtl">
@@ -735,8 +783,8 @@
                             </div>
 
 
-
                             <h5 class="text-primary text-center rtl">احتياجات الاسرة</h5>
+                            <hr>
                             <!-- Urgent Basic Needs for Family -->
                             <div class="col-lg-12 col-xl-12 rtl">
                                 <div class="form-group rtl">
@@ -955,6 +1003,7 @@
                             </div>
 
                             <h5 class="text-primary text-center rtl">بيانات المسكن</h5>
+                            <hr>
                             <!-- Housing Ownership -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
@@ -1077,11 +1126,12 @@
                                     @enderror
                                 </div>
                             </div>
-
                             <!-- Displaced Housing Information Section (Initially Hidden) -->
                             <div id="displaced-housing-section" style="display: none;">
+
                                 <h5 class="text-primary text-center rtl">اسئلة للاسر التي نزحت من منازلها خلال الحرب/
                                     بيانات موقع السكن الجديد بعد النزوح</h5>
+                                <hr>
                                 <div class="row">
                                     <!-- Displaced Governorate -->
                                     <div class="col-lg-12 col-xl-6 mb-4">
@@ -1252,7 +1302,7 @@
 
                             <h5 class="text-primary text-center rtl">البيانات البنكية ان وجدت لرب الاسرة او احد
                                 افرادها</h5>
-
+                            <hr>
                             <!-- Account Holder Name -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
@@ -1311,7 +1361,7 @@
                             <div class="col-lg-12 col-xl-12">
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="agree_to_share_data_for_assistance"
-                                        name="agree_to_share_data_for_assistance">
+                                        name="agree_to_share_data_for_assistance" required>
                                         <option>اختار</option>
                                         <option value="نعم"
                                             {{ old('agree_to_share_data_for_assistance') == 'نعم' ? 'selected' : '' }}>
@@ -1321,7 +1371,8 @@
                                             لا</option>
                                     </select>
                                     <label for="agree_to_share_data_for_assistance">هل توافق عل نشر البيانات
-                                        المدخلة مع الجهات ذوي الاختصاص لغايات تقديم المساعدات؟</label>
+                                        المدخلة مع الجهات ذوي الاختصاص لغايات تقديم المساعدات؟ <span
+                                            class="text-danger">*</span></label>
                                     @error('agree_to_share_data_for_assistance')
                                         <div class="text-danger">{{ $message }}</div>
                                     @enderror
@@ -1370,9 +1421,12 @@
                 spouseIdType.setAttribute('required', 'required'); // Make spouse_id_number required
             } else {
                 spouseInfoSection.style.display = 'none'; // Hide spouse info section
-                spouseIdInput.removeAttribute('required'); // Remove required attribute for spouse_id_number
-                spouseFullName.removeAttribute('required'); // Remove required attribute for spouse_id_number
-                spouseIdType.removeAttribute('required'); // Remove required attribute for spouse_id_number
+                spouseIdInput.removeAttribute(
+                    'required'); // Remove required attribute for spouse_id_number
+                spouseFullName.removeAttribute(
+                    'required'); // Remove required attribute for spouse_id_number
+                spouseIdType.removeAttribute(
+                    'required'); // Remove required attribute for spouse_id_number
             }
         });
 
@@ -1387,16 +1441,20 @@
         const careSelect = document.getElementById('care_for_non_family_members');
         const nonFamilyCareSection = document.getElementById('non-family-care-section');
         const reasonForCaringInput = document.getElementById('reason_for_caring_for_children');
-        const numberOfChildrenInput = document.getElementById('number_of_children_cared_for_not_in_family_under_18');
+        const numberOfChildrenInput = document.getElementById(
+            'number_of_children_cared_for_not_in_family_under_18');
 
         // Show or hide the section based on the selection
         careSelect.addEventListener('change', function() {
             if (this.value === 'نعم') {
                 nonFamilyCareSection.style.display = 'block';
-                numberOfChildrenInput.setAttribute('required', 'required'); // Make number_of_children_cared_for_not_in_family_under_18 required
+                numberOfChildrenInput.setAttribute('required',
+                    'required'); // Make number_of_children_cared_for_not_in_family_under_18 required
             } else {
                 nonFamilyCareSection.style.display = 'none';
-                numberOfChildrenInput.removeAttribute('required'); // Remove required for number_of_children_cared_for_not_in_family_under_18
+                numberOfChildrenInput.removeAttribute(
+                    'required'
+                    ); // Remove required for number_of_children_cared_for_not_in_family_under_18
             }
         });
 
@@ -1420,12 +1478,16 @@
         displacedSelect.addEventListener('change', function() {
             if (this.value === 'نعم') {
                 displacedSection.style.display = 'block'; // Show displaced housing section
-                displacedGovernorateInput.setAttribute('required', 'required'); // Make displaced_governorate required
-                displacedPlaceOfDisplacementInput.setAttribute('required', 'required'); // Make displaced_place_of_displacement required
+                displacedGovernorateInput.setAttribute('required',
+                    'required'); // Make displaced_governorate required
+                displacedPlaceOfDisplacementInput.setAttribute('required',
+                    'required'); // Make displaced_place_of_displacement required
             } else {
                 displacedSection.style.display = 'none'; // Hide displaced housing section
-                displacedGovernorateInput.removeAttribute('required'); // Remove required for displaced_governorate
-                displacedPlaceOfDisplacementInput.removeAttribute('required'); // Remove required for displaced_place_of_displacement
+                displacedGovernorateInput.removeAttribute(
+                    'required'); // Remove required for displaced_governorate
+                displacedPlaceOfDisplacementInput.removeAttribute(
+                    'required'); // Remove required for displaced_place_of_displacement
             }
         });
 
@@ -1439,16 +1501,19 @@
     document.addEventListener('DOMContentLoaded', function() {
         const lostFamilyMemberSelect = document.getElementById('lost_family_member_during_war');
         const relationshipSection = document.getElementById('relationship-section');
-        const relationshipToFamilyMembersInput = document.getElementById('relationship_to_family_members_lost_during_war');
+        const relationshipToFamilyMembersInput = document.getElementById(
+            'relationship_to_family_members_lost_during_war');
 
         // Show or hide the section based on the selection
         lostFamilyMemberSelect.addEventListener('change', function() {
             if (this.value === 'نعم') {
                 relationshipSection.style.display = 'block'; // Show the relationship section
-                relationshipToFamilyMembersInput.setAttribute('required', 'required'); // Make relationship_to_family_members_lost_during_war required
+                relationshipToFamilyMembersInput.setAttribute('required',
+                    'required'); // Make relationship_to_family_members_lost_during_war required
             } else {
                 relationshipSection.style.display = 'none'; // Hide the relationship section
-                relationshipToFamilyMembersInput.removeAttribute('required'); // Remove required for relationship_to_family_members_lost_during_war
+                relationshipToFamilyMembersInput.removeAttribute(
+                    'required'); // Remove required for relationship_to_family_members_lost_during_war
             }
         });
 
@@ -1457,3 +1522,25 @@
     });
 </script>
 
+<script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+        const selects = document.querySelectorAll(
+            'select[required]'); // Target all <select> fields with the "required" attribute
+        let valid = true;
+
+        selects.forEach(function(select) {
+            if (select.value === "") { // Check if the value is empty
+                valid = false;
+                alert(
+                    `يرجى اختيار ${select.getAttribute('data-label') || 'قيمة'}.`
+                    ); // Use a custom label if provided
+                select.focus(); // Focus on the invalid field
+                return; // Exit the loop on the first invalid field
+            }
+        });
+
+        if (!valid) {
+            e.preventDefault(); // Prevent form submission
+        }
+    });
+</script>

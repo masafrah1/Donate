@@ -74,7 +74,7 @@ class WarFormResource extends Resource
                             'وثيقة أخرى' => 'وثيقة أخرى',
                         ]),
 
-                        Select::make('gender')
+                    Select::make('gender')
                         ->required()
                         ->string()
                         ->searchable()
@@ -89,22 +89,22 @@ class WarFormResource extends Resource
                         ->required()
                         ->label('First Name')
                         ->string(),
-    
+
                     TextInput::make('second_name')
                         ->required()
                         ->label('Second Name')
                         ->string(),
-    
+
                     TextInput::make('third_name')
                         ->required()
                         ->label('Third Name')
                         ->string(),
-    
+
                     TextInput::make('family_name')
                         ->required()
                         ->label('Family Name')
                         ->string(),
-    
+
 
                     DatePicker::make('birth_of_date')
                         ->rules(['date'])
@@ -137,9 +137,21 @@ class WarFormResource extends Resource
                             'وثيقة أخرى' => 'وثيقة أخرى',
                         ]),
 
-                    TextInput::make('spouse_full_name')
-                        ->nullable()
-                        ->string(),
+                    TextInput::make('spouse_first_name')
+                        ->label('Spouse First Name')
+                        ->required(),
+
+                    TextInput::make('spouse_second_name')
+                        ->label('Spouse Second Name')
+                        ->required(),
+
+                    TextInput::make('spouse_third_name')
+                        ->label('Spouse Third Name')
+                        ->required(),
+
+                    TextInput::make('spouse_family_name')
+                        ->label('Spouse Family Name')
+                        ->required(),
 
                     TextInput::make('phone_1')
                         ->nullable()
@@ -605,13 +617,13 @@ class WarFormResource extends Resource
                         ->native(false)
                         ->options([
                             'وفاة احد الوالدين او كلاهما' =>
-                                'وفاة احد الوالدين او كلاهما',
+                            'وفاة احد الوالدين او كلاهما',
                             'وفاة كامل العائلة' => 'وفاة كامل العائلة',
                             'مجهولين' => 'مجهولين',
                             'فقدان الاتصال بالوالدين او احداهما' =>
-                                'فقدان الاتصال بالوالدين او احداهما',
+                            'فقدان الاتصال بالوالدين او احداهما',
                             'الاهل خارج القطاع حاليا' =>
-                                'الاهل خارج القطاع حاليا',
+                            'الاهل خارج القطاع حاليا',
                             'اخرى' => 'اخرى',
                         ]),
 
@@ -656,7 +668,7 @@ class WarFormResource extends Resource
                         ->options([
                             'المساعدات المالية' => 'المساعدات المالية',
                             'الرعاية الصحية -العلاج' =>
-                                'الرعاية الصحية -العلاج',
+                            'الرعاية الصحية -العلاج',
                             'المسكن -المأوى' => 'المسكن -المأوى',
                             'الملابس' => 'الملابس',
                             'اغطية / فرشات ومخدات' => 'اغطية / فرشات ومخدات',
@@ -685,7 +697,7 @@ class WarFormResource extends Resource
                             'وقود' => 'وقود',
                             'مطاعيم الاطفال' => 'مطاعيم الاطفال',
                             'حزم اتصال مجانية وانترنت' =>
-                                'حزم اتصال مجانية وانترنت',
+                            'حزم اتصال مجانية وانترنت',
                             'أخرى' => 'أخرى',
                         ]),
 
@@ -698,15 +710,15 @@ class WarFormResource extends Resource
                         ->native(false)
                         ->options([
                             'أجور ورواتب من القطاع الحكومي' =>
-                                'أجور ورواتب من القطاع الحكومي',
+                            'أجور ورواتب من القطاع الحكومي',
                             'أجور ورواتب من القطاع الخاص' =>
-                                'أجور ورواتب من القطاع الخاص',
+                            'أجور ورواتب من القطاع الخاص',
                             'أجور ورواتب من العمل داخل اراضي 48' =>
-                                'أجور ورواتب من العمل داخل اراضي 48',
+                            'أجور ورواتب من العمل داخل اراضي 48',
                             'مشاريع للاسرة غير زراعية' =>
-                                'مشاريع للاسرة غير زراعية',
+                            'مشاريع للاسرة غير زراعية',
                             'الزراعة وتربية الحيوانات' =>
-                                'الزراعة وتربية الحيوانات',
+                            'الزراعة وتربية الحيوانات',
                             'مساعدات اجتماعية' => 'مساعدات اجتماعية',
                             'تحويلات من الخارج' => 'تحويلات من الخارج',
                             'أخرى' => 'أخرى',
@@ -770,7 +782,7 @@ class WarFormResource extends Resource
                             'ضرر كلي' => 'ضرر كلي',
                             'ضرر جزئي يصلح للسكن' => 'ضرر جزئي يصلح للسكن',
                             'ضرر جزئي لا يصلح للسكن' =>
-                                'ضرر جزئي لا يصلح للسكن',
+                            'ضرر جزئي لا يصلح للسكن',
                             'لم يتضرر' => 'لم يتضرر',
                         ]),
 
@@ -900,7 +912,10 @@ class WarFormResource extends Resource
 
                 TextColumn::make('spouse_id_type'),
 
-                TextColumn::make('spouse_full_name'),
+                TextColumn::make('spouse_first_name'),
+                TextColumn::make('spouse_second_name'),
+                TextColumn::make('spouse_third_name'),
+                TextColumn::make('spouse_family_name'),
 
                 TextColumn::make('phone_1'),
 
@@ -1034,9 +1049,9 @@ class WarFormResource extends Resource
     }
 
     public static function getWidgets(): array
-{
-    return [
-        WarFormCountWidget::class,
-    ];
-}
+    {
+        return [
+            WarFormCountWidget::class,
+        ];
+    }
 }

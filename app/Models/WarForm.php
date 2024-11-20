@@ -25,7 +25,11 @@ class WarForm extends Model
         'marital_status', //required
         'spouse_id_number', //required
         'spouse_id_type', //required
-        'spouse_full_name', //required
+        'identity_number',
+        'spouse_first_name',
+        'spouse_second_name',
+        'spouse_third_name',
+        'spouse_family_name',
         'phone_1',  //required
         'phone_2',
         'residence_governorate', //required
@@ -69,4 +73,9 @@ class WarForm extends Model
         'account_number',
         'agree_to_share_data_for_assistance', //required
     ];
+
+    public function getSpouseFullNameAttribute()
+    {
+        return "{$this->spouse_first_name} {$this->spouse_second_name} {$this->spouse_third_name} {$this->spouse_family_name}";
+    }
 }

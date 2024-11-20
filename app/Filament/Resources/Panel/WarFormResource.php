@@ -1013,6 +1013,10 @@ class WarFormResource extends Resource
             ->actions([
                 Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make(),
+                ExportAction::make()->exports([
+                    ExcelExport::make('table')->fromTable()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
+                    ExcelExport::make('form')->fromForm()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
+                ])
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
@@ -1020,7 +1024,11 @@ class WarFormResource extends Resource
 
                     Tables\Actions\ForceDeleteBulkAction::make(),
                     Tables\Actions\RestoreBulkAction::make(),
-                    ExportBulkAction::make(),
+                    // ExportBulkAction::make(),
+                    ExportAction::make()->exports([
+                        ExcelExport::make('table')->fromTable()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
+                        ExcelExport::make('form')->fromForm()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
+                    ])
                 ]),
             ])
             ->defaultSort('id', 'desc');

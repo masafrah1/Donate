@@ -893,8 +893,8 @@ class WarFormResource extends Resource
         return $table
             ->poll('60s')
             ->columns([
+                TextColumn::make('created_at')->dateTime('d/m/Y H:i:s.v'),
                 TextColumn::make('identity_number'),
-
                 TextColumn::make('identity_type')->sortable(),
 
                 TextColumn::make('first_name')->sortable(),
@@ -902,6 +902,7 @@ class WarFormResource extends Resource
                 TextColumn::make('third_name')->sortable(),
                 TextColumn::make('family_name')->sortable(),
 
+                TextColumn::make('gender')->sortable(),
                 TextColumn::make('birth_of_date')->since(),
 
                 TextColumn::make('marital_status'),
@@ -1007,7 +1008,6 @@ class WarFormResource extends Resource
 
                 TextColumn::make('agree_to_share_data_for_assistance'),
 
-                TextColumn::make('created_at'),
             ])
             ->filters([Tables\Filters\TrashedFilter::make()])
             ->actions([

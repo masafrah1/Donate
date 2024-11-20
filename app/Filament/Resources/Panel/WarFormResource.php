@@ -1015,7 +1015,7 @@ class WarFormResource extends Resource
                 Tables\Actions\ViewAction::make(),
                 ExportAction::make()->exports([
                     ExcelExport::make('table')->fromTable()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
-                    ExcelExport::make('form')->fromForm()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
+                    // ExcelExport::make('form')->fromForm()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
                 ])
             ])
             ->bulkActions([
@@ -1027,7 +1027,7 @@ class WarFormResource extends Resource
                     // ExportBulkAction::make(),
                     ExportAction::make()->exports([
                         ExcelExport::make('table')->fromTable()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
-                        ExcelExport::make('form')->fromForm()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
+                        // ExcelExport::make('form')->fromForm()->withFilename('Reduced Intake Form Output-Sample Data.xlsx'),
                     ])
                 ]),
             ])

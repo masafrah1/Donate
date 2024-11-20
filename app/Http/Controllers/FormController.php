@@ -53,7 +53,7 @@ class FormController extends Controller
             'secondary_needs_for_family' => 'nullable|array',
             'sources_of_family_income' => 'nullable|array',
             'unable_to_use_land_or_properties_due_to_war' => 'nullable|string|max:255',
-            'monthly_income_shekels' => 'nullable|integer|min:0',
+            'monthly_income_shekels' => 'nullable|numeric|min:0',
             'housing_ownership' => 'required|string|max:255',
             'type_of_housing' => 'required|string|max:255',
             'extent_of_housing_damage_due_to_war' => 'required|string|max:255',
@@ -70,13 +70,19 @@ class FormController extends Controller
         if ($request->input('marital_status') == 'متزوج') {
             $rules['spouse_id_number'] = 'required|string|max:255';
             $rules['spouse_id_type'] = 'required|string|max:255';
-            $rules['spouse_full_name'] = 'required|string|max:255';
+            $rules['spouse_first_name'] = 'required|string|max:255';
+            $rules['spouse_second_name'] = 'required|string|max:255';
+            $rules['spouse_third_name'] = 'required|string|max:255';
+            $rules['spouse_family_name'] = 'required|string|max:255';
         }
         else
         {
             $data['spouse_id_number'] = '';
             $data['spouse_id_type'] = '';
-            $data['spouse_full_name'] = '';
+            $data['spouse_first_name'] = '';
+            $data['spouse_second_name'] = '';
+            $data['spouse_third_name'] = '';
+            $data['spouse_family_name'] = '';
         }
 
         if ($request->input('care_for_non_family_members') == 'نعم') {
@@ -97,7 +103,7 @@ class FormController extends Controller
             $data['relationship_to_family_members_lost_during_war'] = '';
         }
 //care_for_non_family_members
-        
+
 
         if ($request->input('displaced_due_to_war_and_changed_housing_location') == 'نعم') {
             $rules['displaced_governorate'] = 'required|string|max:255';
@@ -202,7 +208,7 @@ class FormController extends Controller
             }
         }
 
-        
+
         if($data['spouse_id_type'] == 'اختار') {
             $data['spouse_id_type'] = '';
         }

@@ -31,7 +31,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="identity_type" name="identity_type"
                                         required>
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         @foreach (['فلسطينية', 'اردنية', 'اسرائيلية', 'مصرية', 'تصريح اقامة', 'وثيقة أخرى'] as $type)
                                             <option value="{{ $type }}"
                                                 {{ old('identity_type') == $type ? 'selected' : '' }}>
@@ -101,7 +101,7 @@
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="gender" name="gender" required>
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="ذكر" {{ old('gender') == 'ذكر' ? 'selected' : '' }}>
                                             ذكر</option>
                                         <option value="انثى" {{ old('gender') == 'انثى' ? 'selected' : '' }}>
@@ -132,7 +132,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="marital_status" name="marital_status"
                                         required>
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="متزوج"
                                             {{ old('marital_status') == 'متزوج' ? 'selected' : '' }}>متزوج
                                         </option>
@@ -173,7 +173,7 @@
                             <div class="mb-4" id="spouse-info-section" style="display: none;">
 
                                 <h5 class="text-primary text-center rtl">بيانات الزوج /ة</h5>
-                                <hr>
+                                <hr class="mt-1">
                                 <div class="row mb4">
                                     <!-- Spouse ID Number -->
                                     <div class="col-lg-12 col-xl-6 mb-4">
@@ -225,21 +225,53 @@
                                     <!-- Spouse Full Name -->
                                     <div class="col-lg-12 col-xl-6 mb-4">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control border-0" id="spouse_full_name"
-                                                name="spouse_full_name" value="{{ old('spouse_full_name') }}"
-                                                placeholder="الاسم الرباعي للزوج/ ة" required>
-                                            <label for="spouse_full_name">الاسم الرباعي للزوج/ ة <span
-                                                    class="text-danger">*</span></label>
-                                            @error('spouse_full_name')
+                                            <input type="text" class="form-control border-0" id="spouse_first_name" name="spouse_first_name"
+                                                value="{{ old('spouse_first_name') }}" placeholder="الاسم الأول للزوج/ة" required>
+                                            <label for="spouse_first_name">الاسم الأول للزوج/ ة <span class="text-danger">*</span></label>
+                                            @error('spouse_first_name')
                                                 <div class="text-danger">{{ $message }}</div>
                                             @enderror
                                         </div>
                                     </div>
+
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="spouse_second_name" name="spouse_second_name"
+                                                value="{{ old('spouse_second_name') }}" placeholder="الاسم الثاني للزوج/ة" required>
+                                            <label for="spouse_second_name">الاسم الثاني للزوج/ ة <span class="text-danger">*</span></label>
+                                            @error('spouse_second_name')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="spouse_third_name" name="spouse_third_name"
+                                                value="{{ old('spouse_third_name') }}" placeholder="الاسم الثالث للزوج/ة" required>
+                                            <label for="spouse_third_name">الاسم الثالث للزوج/ ة <span class="text-danger">*</span></label>
+                                            @error('spouse_third_name')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-xl-6 mb-4">
+                                        <div class="form-floating">
+                                            <input type="text" class="form-control border-0" id="spouse_family_name" name="spouse_family_name"
+                                                value="{{ old('spouse_family_name') }}" placeholder="اسم العائلة للزوج/ة" required>
+                                            <label for="spouse_family_name">اسم العائلة للزوج/ ة <span class="text-danger">*</span></label>
+                                            @error('spouse_family_name')
+                                                <div class="text-danger">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
                             <h5 class="text-primary text-center rtl">معلومات الاتصال</h5>
-                            <hr>
+                            <hr class="mt-1">
                             <!-- Phone Number -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
@@ -271,7 +303,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="residence_governorate"
                                         name="residence_governorate" required>
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="غزة"
                                             {{ old('residence_governorate') == 'غزة' ? 'selected' : '' }}>غزة
                                         </option>
@@ -373,7 +405,7 @@
 
                             <h5 class="text-primary text-center rtl">التكوين الاسري: هل يوجد من بين افراد
                                 الاسرة الفئات التالية :(ادخل صفر اذا لا يوجد )</h5>
-                            <hr>
+                            <hr class="mt-1">
 
                             <!-- Family Members Count -->
                             <div class="col-lg-12 col-xl-6">
@@ -641,7 +673,7 @@
                             <div id="non-family-care-section" style="display: none;">
 
                                 <h5 class="text-primary text-center rtl">رعاية اطفال ليسو من ضمن العائلة</h5>
-                                <hr>
+                                <hr class="mt-1">
                                 <!-- Number of Children Cared for Not in Family Under 18 -->
                                 <div class="col-lg-12 col-xl-12 mb-4">
                                     <div class="form-floating">
@@ -709,13 +741,13 @@
 
                             <h5 class="text-primary text-center rtl">خلال هذه الحرب هل فقدت احد افراد عائلتك
                             </h5>
-                            <hr>
+                            <hr class="mt-1">
                             <!-- Lost Family Member During War -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="lost_family_member_during_war"
                                         name="lost_family_member_during_war">
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="نعم"
                                             {{ old('lost_family_member_during_war') == 'نعم' ? 'selected' : '' }}>
                                             نعم</option>
@@ -735,7 +767,7 @@
                             <div id="relationship-section" style="display: none;">
 
                                 <h5 class="text-primary text-center rtl">صلة القرابة</h5>
-                                <hr>
+                                <hr class="mt-1">
                                 <!-- Relationship to Family Members Lost During War -->
                                 <div class="col-lg-12 col-xl-6 rtl">
                                     <div class="form-group rtl">
@@ -784,7 +816,7 @@
 
 
                             <h5 class="text-primary text-center rtl">احتياجات الاسرة</h5>
-                            <hr>
+                            <hr class="mt-1">
                             <!-- Urgent Basic Needs for Family -->
                             <div class="col-lg-12 col-xl-12 rtl">
                                 <div class="form-group rtl">
@@ -972,7 +1004,7 @@
                                     <input type="number" class="form-control border-0 rtl"
                                         id="monthly_income_shekels" name="monthly_income_shekels"
                                         value="{{ old('monthly_income_shekels') }}"
-                                        placeholder="الدخل الشهري (شيكل)" step="1">
+                                        placeholder="الدخل الشهري (شيكل)" step="0.0001" min="0">
                                     <label for="monthly_income_shekels">الدخل الشهري (شيكل)</label>
                                     @error('monthly_income_shekels')
                                         <div class="text-danger">{{ $message }}</div>
@@ -986,7 +1018,7 @@
                                     <select class="form-select border-0"
                                         id="unable_to_use_land_or_properties_due_to_war"
                                         name="unable_to_use_land_or_properties_due_to_war">
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="نعم"
                                             {{ old('unable_to_use_land_or_properties_due_to_war') == 'نعم' ? 'selected' : '' }}>
                                             نعم</option>
@@ -1003,13 +1035,13 @@
                             </div>
 
                             <h5 class="text-primary text-center rtl">بيانات المسكن</h5>
-                            <hr>
+                            <hr class="mt-1">
                             <!-- Housing Ownership -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="housing_ownership"
                                         name="housing_ownership" required>
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="ملك"
                                             {{ old('housing_ownership') == 'ملك' ? 'selected' : '' }}>ملك
                                         </option>
@@ -1042,6 +1074,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="type_of_housing" name="type_of_housing"
                                         required>
+                                        <option value="">اختار</option>
                                         <option value="فيلا"
                                             {{ old('type_of_housing') == 'فيلا' ? 'selected' : '' }}>فيلا
                                         </option>
@@ -1079,7 +1112,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="extent_of_housing_damage_due_to_war"
                                         name="extent_of_housing_damage_due_to_war" required>
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="ضرر كلي"
                                             {{ old('extent_of_housing_damage_due_to_war') == 'ضرر كلي' ? 'selected' : '' }}>
                                             ضرر كلي</option>
@@ -1131,7 +1164,7 @@
 
                                 <h5 class="text-primary text-center rtl">اسئلة للاسر التي نزحت من منازلها خلال الحرب/
                                     بيانات موقع السكن الجديد بعد النزوح</h5>
-                                <hr>
+                                <hr class="mt-1">
                                 <div class="row">
                                     <!-- Displaced Governorate -->
                                     <div class="col-lg-12 col-xl-6 mb-4">
@@ -1302,7 +1335,7 @@
 
                             <h5 class="text-primary text-center rtl">البيانات البنكية ان وجدت لرب الاسرة او احد
                                 افرادها</h5>
-                            <hr>
+                            <hr class="mt-1">
                             <!-- Account Holder Name -->
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
@@ -1362,7 +1395,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="agree_to_share_data_for_assistance"
                                         name="agree_to_share_data_for_assistance" required>
-                                        <option>اختار</option>
+                                        <option value="">اختار</option>
                                         <option value="نعم"
                                             {{ old('agree_to_share_data_for_assistance') == 'نعم' ? 'selected' : '' }}>
                                             نعم</option>
@@ -1408,7 +1441,10 @@
         const maritalStatus = document.getElementById('marital_status');
         const spouseInfoSection = document.getElementById('spouse-info-section');
         const spouseIdInput = document.getElementById('spouse_id_number');
-        const spouseFullName = document.getElementById('spouse_full_name');
+        const spouse_first_name = document.getElementById('spouse_first_name');
+        const spouse_second_name = document.getElementById('spouse_second_name');
+        const spouse_third_name = document.getElementById('spouse_third_name');
+        const spouse_family_name = document.getElementById('spouse_family_name');
         const spouseIdType = document.getElementById('spouse_id_type');
 
 
@@ -1417,14 +1453,19 @@
             if (this.value === 'متزوج') {
                 spouseInfoSection.style.display = 'block'; // Show spouse info section
                 spouseIdInput.setAttribute('required', 'required'); // Make spouse_id_number required
-                spouseFullName.setAttribute('required', 'required'); // Make spouse_id_number required
+                spouse_first_name.setAttribute('required', 'required'); // Make spouse_id_number required
+                spouse_second_name.setAttribute('required', 'required'); // Make spouse_id_number required
+                spouse_third_name.setAttribute('required', 'required'); // Make spouse_id_number required
+                spouse_family_name.setAttribute('required', 'required'); // Make spouse_id_number required
                 spouseIdType.setAttribute('required', 'required'); // Make spouse_id_number required
             } else {
                 spouseInfoSection.style.display = 'none'; // Hide spouse info section
                 spouseIdInput.removeAttribute(
                     'required'); // Remove required attribute for spouse_id_number
-                spouseFullName.removeAttribute(
-                    'required'); // Remove required attribute for spouse_id_number
+                spouse_first_name.removeAttribute('required'); // Remove required attribute for spouse_id_number
+                spouse_second_name.removeAttribute('required'); // Remove required attribute for spouse_id_number
+                spouse_third_name.removeAttribute('required'); // Remove required attribute for spouse_id_number
+                spouse_family_name.removeAttribute('required'); // Remove required attribute for spouse_id_number
                 spouseIdType.removeAttribute(
                     'required'); // Remove required attribute for spouse_id_number
             }

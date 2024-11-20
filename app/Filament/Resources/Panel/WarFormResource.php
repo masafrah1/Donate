@@ -22,6 +22,8 @@ use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
 use App\Filament\Resources\Panel\WarFormResource\Pages;
 use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
 use App\Filament\Resources\Panel\WarFormResource\RelationManagers;
+use App\Filament\Resources\WarFormResource\Widgets\WarFormCountWidget;
+
 class WarFormResource extends Resource
 {
     protected static ?string $model = WarForm::class;
@@ -83,9 +85,26 @@ class WarFormResource extends Resource
                             'انثى' => 'انثى',
                         ]),
 
-                    TextInput::make('full_name')
+                    TextInput::make('first_name')
                         ->required()
+                        ->label('First Name')
                         ->string(),
+    
+                    TextInput::make('second_name')
+                        ->required()
+                        ->label('Second Name')
+                        ->string(),
+    
+                    TextInput::make('third_name')
+                        ->required()
+                        ->label('Third Name')
+                        ->string(),
+    
+                    TextInput::make('family_name')
+                        ->required()
+                        ->label('Family Name')
+                        ->string(),
+    
 
                     DatePicker::make('birth_of_date')
                         ->rules(['date'])
@@ -611,7 +630,7 @@ class WarFormResource extends Resource
                         'relationship_to_family_members_lost_during_war'
                     )
                         ->nullable()
-                        ->string()
+                        // ->string()
                         ->multiple()
                         ->searchable()
                         ->preload()
@@ -629,7 +648,7 @@ class WarFormResource extends Resource
 
                     Select::make('urgent_basic_needs_for_family')
                         ->nullable()
-                        ->string()
+                        // ->string()
                         ->multiple()
                         ->searchable()
                         ->preload()
@@ -654,7 +673,7 @@ class WarFormResource extends Resource
 
                     Select::make('secondary_needs_for_family')
                         ->nullable()
-                        ->string()
+                        // ->string()
                         ->multiple()
                         ->searchable()
                         ->preload()
@@ -672,7 +691,7 @@ class WarFormResource extends Resource
 
                     Select::make('sources_of_family_income')
                         ->nullable()
-                        ->string()
+                        // ->string()
                         ->multiple()
                         ->searchable()
                         ->preload()
@@ -864,9 +883,12 @@ class WarFormResource extends Resource
             ->columns([
                 TextColumn::make('identity_number'),
 
-                TextColumn::make('identity_type'),
+                TextColumn::make('identity_type')->sortable(),
 
-                TextColumn::make('full_name'),
+                TextColumn::make('first_name')->sortable(),
+                TextColumn::make('second_name')->sortable(),
+                TextColumn::make('third_name')->sortable(),
+                TextColumn::make('family_name')->sortable(),
 
                 TextColumn::make('birth_of_date')->since(),
 
@@ -1010,4 +1032,11 @@ class WarFormResource extends Resource
             SoftDeletingScope::class,
         ]);
     }
+
+    public static function getWidgets(): array
+{
+    return [
+        WarFormCountWidget::class,
+    ];
+}
 }

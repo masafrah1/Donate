@@ -16,7 +16,10 @@ class WarForm extends Model
     protected $fillable = [
         'identity_number', //required
         'identity_type', //required
-        'full_name', //required
+        'first_name',
+        'second_name',
+        'third_name',
+        'family_name',
         'gender', //required
         'birth_of_date',    //required
         'marital_status', //required

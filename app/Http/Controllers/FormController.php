@@ -15,11 +15,16 @@ class FormController extends Controller
 
     public function store(Request $request)
     {
+        $data = $request->all();
         // Define validation rules for all fields
         $rules = [
             'identity_number' => 'required|string|max:255',
             'identity_type' => 'required|string|max:255',
-            'full_name' => 'required|string|max:255',
+            // 'full_name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'second_name' => 'required|string|max:255',
+            'third_name' => 'required|string|max:255',
+            'family_name' => 'required|string|max:255',
             'gender' => 'required|string|max:255',
             'birth_of_date' => 'required|date',
             'marital_status' => 'required|string|max:255',
@@ -67,14 +72,29 @@ class FormController extends Controller
             $rules['spouse_id_type'] = 'required|string|max:255';
             $rules['spouse_full_name'] = 'required|string|max:255';
         }
+        else
+        {
+            $data['spouse_id_number'] = '';
+            $data['spouse_id_type'] = '';
+            $data['spouse_full_name'] = '';
+        }
 
         if ($request->input('care_for_non_family_members') == 'نعم') {
             $rules['reason_for_caring_for_children'] = 'nullable|string|max:255';
             $rules['number_of_children_cared_for_not_in_family_under_18'] = 'required|integer|min:0';
         }
+        else
+        {
+            $data['reason_for_caring_for_children'] = '';
+            $data['number_of_children_cared_for_not_in_family_under_18'] = 0;
+        }
 
         if ($request->input('lost_family_member_during_war') == 'نعم') {
             $rules['relationship_to_family_members_lost_during_war'] = 'required|array';
+        }
+        else
+        {
+            $data['relationship_to_family_members_lost_during_war'] = '';
         }
 //care_for_non_family_members
         
@@ -85,6 +105,13 @@ class FormController extends Controller
             $rules['displaced_street'] = 'nullable|string|max:255';
             $rules['displaced_place_of_displacement'] = 'required|string|max:255';
             $rules['displaced_address'] = 'nullable|string|max:255';
+        } else
+        {
+            $data['displaced_governorate'] = '';
+            $data['displaced_population_cluster'] = '';
+            $data['displaced_street'] = '';
+            $data['displaced_place_of_displacement'] = '';
+            $data['displaced_address'] = '';
         }
         // Arabic validation messages
         $messages = [
@@ -169,7 +196,6 @@ class FormController extends Controller
 
 
         // Convert array fields to comma-separated strings
-        $data = $request->all();
         foreach (['relationship_to_family_members_lost_during_war', 'urgent_basic_needs_for_family', 'secondary_needs_for_family', 'sources_of_family_income'] as $field) {
             if ($request->has($field)) {
                 $data[$field] = implode(',', $request->input($field));
@@ -187,6 +213,6 @@ class FormController extends Controller
         ->translate(['language' => 'ar'])
         ->option('timeout', 20000)->success("تم حفظ البيانات بنجاح", [], "رائع!");
 
-        return back()->withInput();
+        return back();
     }
 }

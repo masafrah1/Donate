@@ -12,6 +12,8 @@ class WarForm extends Model
     use SoftDeletes;
 
     protected $guarded = [];
+    public $timestamps = true;
+    protected $dateFormat = 'Y-m-d H:i:s.u';
 
     protected $fillable = [
         'identity_number', //required
@@ -72,6 +74,11 @@ class WarForm extends Model
         'account_holder_id_number',
         'account_number',
         'agree_to_share_data_for_assistance', //required
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d H:i:s.v',
+        'updated_at' => 'datetime:Y-m-d H:i:s.v',
     ];
 
     public function getSpouseFullNameAttribute()

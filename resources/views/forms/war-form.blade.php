@@ -31,7 +31,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="identity_type" name="identity_type"
                                         required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         @foreach (['فلسطينية', 'اردنية', 'اسرائيلية', 'مصرية', 'تصريح اقامة', 'وثيقة أخرى'] as $type)
                                             <option value="{{ $type }}"
                                                 {{ old('identity_type') == $type ? 'selected' : '' }}>
@@ -101,7 +101,7 @@
                             <div class="col-lg-12 col-xl-6">
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="gender" name="gender" required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="ذكر" {{ old('gender') == 'ذكر' ? 'selected' : '' }}>
                                             ذكر</option>
                                         <option value="انثى" {{ old('gender') == 'انثى' ? 'selected' : '' }}>
@@ -132,7 +132,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="marital_status" name="marital_status"
                                         required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="متزوج"
                                             {{ old('marital_status') == 'متزوج' ? 'selected' : '' }}>متزوج
                                         </option>
@@ -194,7 +194,7 @@
                                         <div class="form-floating">
                                             <select class="form-select border-0" id="spouse_id_type"
                                                 name="spouse_id_type" required>
-                                                <option value="">اختار</option>
+                                                <option value=""></option>
                                                 <option value="فلسطينية"
                                                     {{ old('spouse_id_type') == 'فلسطينية' ? 'selected' : '' }}>
                                                     فلسطينية</option>
@@ -303,7 +303,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="residence_governorate"
                                         name="residence_governorate" required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="غزة"
                                             {{ old('residence_governorate') == 'غزة' ? 'selected' : '' }}>غزة
                                         </option>
@@ -653,7 +653,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="care_for_non_family_members"
                                         name="care_for_non_family_members" required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="نعم"
                                             {{ old('care_for_non_family_members') == 'نعم' ? 'selected' : '' }}>نعم
                                         </option>
@@ -703,7 +703,7 @@
                                     <div class="form-floating">
                                         <select class="form-select border-0" id="reason_for_caring_for_children"
                                             name="reason_for_caring_for_children">
-                                            <option value="">اختار</option>
+                                            <option value=""></option>
                                             <option value="وفاة احد الوالدين او كلاهما"
                                                 {{ old('reason_for_caring_for_children') == 'وفاة احد الوالدين او كلاهما' ? 'selected' : '' }}>
                                                 وفاة احد الوالدين او كلاهما
@@ -747,7 +747,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="lost_family_member_during_war"
                                         name="lost_family_member_during_war">
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="نعم"
                                             {{ old('lost_family_member_during_war') == 'نعم' ? 'selected' : '' }}>
                                             نعم</option>
@@ -1018,7 +1018,7 @@
                                     <select class="form-select border-0"
                                         id="unable_to_use_land_or_properties_due_to_war"
                                         name="unable_to_use_land_or_properties_due_to_war">
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="نعم"
                                             {{ old('unable_to_use_land_or_properties_due_to_war') == 'نعم' ? 'selected' : '' }}>
                                             نعم</option>
@@ -1041,7 +1041,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="housing_ownership"
                                         name="housing_ownership" required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="ملك"
                                             {{ old('housing_ownership') == 'ملك' ? 'selected' : '' }}>ملك
                                         </option>
@@ -1074,7 +1074,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="type_of_housing" name="type_of_housing"
                                         required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="فيلا"
                                             {{ old('type_of_housing') == 'فيلا' ? 'selected' : '' }}>فيلا
                                         </option>
@@ -1112,7 +1112,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="extent_of_housing_damage_due_to_war"
                                         name="extent_of_housing_damage_due_to_war" required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="ضرر كلي"
                                             {{ old('extent_of_housing_damage_due_to_war') == 'ضرر كلي' ? 'selected' : '' }}>
                                             ضرر كلي</option>
@@ -1140,7 +1140,7 @@
                                     <select class="form-select border-0"
                                         id="displaced_due_to_war_and_changed_housing_location"
                                         name="displaced_due_to_war_and_changed_housing_location" required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="نعم"
                                             {{ old('displaced_due_to_war_and_changed_housing_location') == 'نعم' ? 'selected' : '' }}>
                                             نعم
@@ -1171,7 +1171,7 @@
                                         <div class="form-floating">
                                             <select class="form-select border-0" id="displaced_governorate"
                                                 name="displaced_governorate" required>
-                                                <option value="">اختار</option>
+                                                <option value=""></option>
                                                 <option value="غزة"
                                                     {{ old('displaced_governorate') == 'غزة' ? 'selected' : '' }}>غزة
                                                 </option>
@@ -1285,7 +1285,7 @@
                                         <div class="form-floating">
                                             <select class="form-select border-0" id="displaced_place_of_displacement"
                                                 name="displaced_place_of_displacement" required>
-                                                <option value="">اختار</option>
+                                                <option value=""></option>
                                                 <option value="مدارس الاونروا"
                                                     {{ old('displaced_place_of_displacement') == 'مدارس الاونروا' ? 'selected' : '' }}>
                                                     مدارس الاونروا</option>
@@ -1395,7 +1395,7 @@
                                 <div class="form-floating">
                                     <select class="form-select border-0" id="agree_to_share_data_for_assistance"
                                         name="agree_to_share_data_for_assistance" required>
-                                        <option value="">اختار</option>
+                                        <option value=""></option>
                                         <option value="نعم"
                                             {{ old('agree_to_share_data_for_assistance') == 'نعم' ? 'selected' : '' }}>
                                             نعم</option>

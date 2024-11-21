@@ -905,7 +905,7 @@ class WarFormResource extends Resource
                 TextColumn::make('family_name')->sortable(),
 
                 TextColumn::make('gender')->sortable(),
-                TextColumn::make('birth_of_date')->since(),
+                TextColumn::make('birth_of_date')->dateTime('d/m/Y'),
 
                 TextColumn::make('marital_status'),
 
